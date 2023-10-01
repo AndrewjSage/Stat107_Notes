@@ -1,0 +1,273 @@
+"title","IMDB_score","MPAA_rating","genre","meta_score","run_time","vote","gross"
+"Black Panther",7.3,"PG-13","Action",88,134,480585,700.06
+"Avengers: Infinity War",8.5,"PG-13","Action",68,149,604460,678.82
+"Incredibles 2",7.7,"PG","Animation",80,118,187214,608.58
+"Jurassic World: Fallen Kingdom",6.2,"PG-13","Action",51,128,204123,417.72
+"Aquaman",7.2,"PG-13","Action",55,143,200231,334.14
+"Deadpool 2",7.8,"R","Comedy",66,119,361973,324.59
+"The Grinch",6.3,"PG","Family",51,86,26370,270.6
+"Mission: Impossible - Fallout",7.8,"PG-13","Thriller",86,147,220509,220.16
+"Ant-Man and the Wasp",7.1,"PG-13","Comedy",70,118,208852,216.65
+"Bohemian Rhapsody",8.1,"PG-13","Biography",49,134,303059,215.45
+"A Star Is Born",7.8,"R","Romance",88,136,218495,214.83
+"Solo: A Star Wars Story",7,"PG-13","Action",62,135,211812,213.77
+"Venom",6.8,"PG-13","Thriller",35,112,247521,213.52
+"Ralph Breaks the Internet",7.2,"PG","Animation",71,111,68260,200.63
+"Spider-Man: Into the Spider-Verse",8.6,"PG","Animation",87,117,149842,189.17
+"A Quiet Place",7.6,"PG-13","Horror",82,90,284652,188.02
+"Crazy Rich Asians",7,"PG-13","Romance",74,120,83826,174.53
+"Mary Poppins Returns",7.1,"PG","Family",66,130,38632,171.57
+"Hotel Transylvania 3: Summer Vacation",6.3,"PG","Animation",54,97,38532,167.51
+"Fantastic Beasts: The Crimes of Grindelwald",6.7,"PG-13","Family",52,134,139613,159.56
+"Halloween",6.7,"R","Horror",67,106,80463,159.34
+"The Meg",5.7,"PG-13","Horror",46,113,100830,145.44
+"Ocean's 8",6.2,"PG-13","Comedy",61,110,133168,139.38
+"Ready Player One",7.5,"PG-13","Action",64,140,287262,137.69
+"Bumblebee",7.1,"PG-13","Action",66,114,56052,127.2
+"Mamma Mia! Here We Go Again",6.8,"PG-13","Romance",60,114,54489,120.63
+"The Nun",5.4,"R","Horror",46,96,81268,117.44
+"Creed II",7.3,"PG-13","Drama",66,130,57659,115.71
+"Peter Rabbit",6.6,"PG","Animation",51,95,26422,115.25
+"The Mule",7.2,"R","Thriller",58,116,23394,103.8
+"The Equalizer 2",6.7,"R","Thriller",50,121,87393,102.08
+"A Wrinkle in Time",4.2,"PG","Family",53,109,33555,100.48
+"Fifty Shades Freed",4.5,"R","Thriller",31,105,41775,100.41
+"Rampage",6.1,"PG-13","Action",45,107,109721,99.35
+"Christopher Robin",7.4,"PG","Animation",60,104,45740,99.22
+"I Can Only Imagine",7.4,"PG","Family",30,110,10603,83.48
+"Smallfoot",6.7,"PG","Animation",60,96,20525,83.24
+"Green Book",8.3,"PG-13","Biography",69,130,146301,81.34
+"Night School",5.6,"PG-13","Comedy",43,111,19869,77.34
+"The First Purge",5.1,"R","Horror",54,98,37610,69.09
+"Game Night",7,"R","Comedy",66,100,153924,69
+"Book Club",6.1,"PG-13","Romance",53,104,16860,68.57
+"The House with a Clock in Its Walls",6.1,"PG","Family",57,105,29585,68.55
+"Skyscraper",5.8,"PG-13","Thriller",51,102,73518,67.8
+"Instant Family",7.4,"PG-13","Comedy",57,118,30514,67.36
+"Insidious: The Last Key",5.7,"PG-13","Horror",49,103,40018,67.35
+"Blockers",6.2,"R","Comedy",69,102,53472,59.84
+"Pacific Rim: Uprising",5.6,"PG-13","Action",44,111,85255,59.19
+"Maze Runner: The Death Cure",6.2,"PG-13","Thriller",50,143,87055,58.03
+"Tomb Raider",6.3,"PG-13","Action",48,119,156352,57.42
+"The Nutcracker and the Four Realms",5.5,"PG","Family",39,99,15863,54.86
+"Tag",6.6,"R","Comedy",56,100,75047,54.55
+"A Simple Favor",6.9,"R","Comedy",67,117,74084,53.54
+"Life of the Party",5.5,"PG-13","Comedy",46,105,23694,52.86
+"The Predator",5.4,"R","Action",48,107,86657,51.02
+"Overboard",5.9,"PG-13","Romance",42,112,22944,50.32
+"Sicario: Day of the Soldado",7.1,"R","Action",61,122,86964,50.07
+"I Feel Pretty",5.4,"PG-13","Romance",48,110,36689,48.8
+"BlacKkKlansman",7.5,"R","Biography",83,135,127407,48.69
+"Vice",7.2,"R","Biography",61,132,48931,47.76
+"Red Sparrow",6.6,"R","Thriller",53,140,130826,46.87
+"Goosebumps 2: Haunted Halloween",5.6,"PG","Family",53,90,9603,46.7
+"Breaking In",5.4,"PG-13","Action",42,88,9141,46.38
+"12 Strong",6.6,"R","Action",54,130,47386,45.5
+"Den of Thieves",7,"R","Action",49,140,65954,44.95
+"First Man",7.4,"PG-13","Biography",84,141,106706,44.94
+"Hereditary",7.3,"R","Horror",87,127,137881,44.07
+"Acrimony",5.7,"R","Thriller",32,120,5239,43.55
+"Sherlock Gnomes",5.1,"PG","Animation",36,86,7474,43.24
+"Uncle Drew",5.7,"PG-13","Comedy",57,103,8816,42.47
+"Widows",7,"R","Thriller",84,129,51811,42.4
+"Love, Simon",7.7,"PG-13","Romance",72,110,77211,40.83
+"Truth or Dare",5.1,"PG-13","Horror",35,100,31090,40.72
+"Second Act",5.8,"PG-13","Romance",46,103,8425,39.28
+"The Commuter",6.3,"PG-13","Thriller",56,105,79130,36.34
+"The 15:17 to Paris",5.2,"PG-13","Biography",45,94,20656,36.25
+"Mile 22",6.1,"R","Thriller",38,94,43468,36.11
+"Alpha",6.7,"PG-13","Family",63,96,37281,35.85
+"Peppermint",6.5,"R","Action",29,101,31495,35.42
+"Death Wish",6.4,"R","Action",31,107,46769,34.02
+"The Favourite",7.7,"R","Biography",90,119,94183,33.93
+"The Spy Who Dumped Me",6,"R","Comedy",52,117,42865,33.56
+"Annihilation",6.9,"R","Horror",79,115,217340,32.73
+"Isle of Dogs",7.9,"PG-13","Animation",82,101,101213,32.02
+"Nobody's Fool",4.5,"R","Romance",39,110,2955,31.71
+"Adrift",6.6,"PG-13","Biography",56,96,31221,31.45
+"Robin Hood",5.3,"PG-13","Thriller",32,116,33592,30.82
+"Dragon Ball Super: Broly",8.1,"PG","Animation",59,100,14077,30.71
+"Super Troopers 2",6.1,"R","Comedy",41,99,18661,30.62
+"Holmes & Watson",3.5,"PG-13","Comedy",24,90,10193,30.57
+"Slender Man",3.2,"PG-13","Horror",30,93,17269,30.57
+"The Hate U Give",7.2,"PG-13","Drama",81,133,14559,29.72
+"Teen Titans Go! To the Movies",6.8,"PG","Animation",69,84,11275,29.56
+"Searching",7.7,"PG-13","Thriller",71,102,85422,26.02
+"Winchester",5.4,"PG-13","Biography",28,99,22881,25.09
+"On the Basis of Sex",6.7,"PG-13","Biography",59,120,6044,24.62
+"The Strangers: Prey at Night",5.2,"R","Horror",48,85,20562,24.43
+"White Boy Rick",6.5,"R","Drama",59,111,13133,24.01
+"Overlord",6.8,"R","Horror",60,110,45523,21.7
+"Proud Mary",4.9,"R","Action",35,89,6442,20.87
+"The Happytime Murders",5.3,"R","Comedy",27,91,15295,20.71
+"SuperFly",5.1,"R","Thriller",52,116,4303,20.55
+"Bad Times at the El Royale",7.1,"R","Drama",60,141,73658,17.84
+"Show Dogs",3.6,"PG","Family",31,92,3285,17.74
+"Operation Finale",6.5,"PG-13","Biography",58,122,18954,17.61
+"Paul, Apostle of Christ",6.7,"PG-13","Biography",52,108,5240,17.56
+"Sorry to Bother You",7,"R","Comedy",80,111,35975,17.49
+"Mary Queen of Scots",6.3,"R","Biography",60,124,18096,16.47
+"Forever My Girl",6.7,"PG","Romance",36,108,9258,16.38
+"Mortal Engines",6.2,"PG-13","Action",44,128,52029,15.95
+"Hunter Killer",6.6,"R","Thriller",43,122,28453,15.77
+"The Girl in the Spider's Web",6.1,"R","Action",43,117,22944,14.84
+"The Possession of Hannah Grace",5.2,"R","Horror",37,86,8927,14.84
+"If Beale Street Could Talk",7.4,"R","Romance",87,119,17970,14.8
+"Eighth Grade",7.5,"R","Comedy",90,93,37269,13.54
+"The Darkest Minds",5.7,"PG-13","Action",39,104,18925,12.7
+"Upgrade",7.6,"R","Thriller",67,100,95471,11.87
+"Padmaavat",7,"Not Rated","Romance",63,164,22447,11.85
+"The Old Man & the Gun",6.8,"PG-13","Biography",80,93,21375,11.28
+"Hell Fest",5.5,"R","Horror",26,89,7651,11.11
+"Welcome to Marwen",5.9,"PG-13","Biography",40,116,3619,10.76
+"The Miracle Season",6.5,"PG","Drama",44,101,2941,10.23
+"Midnight Sun",6.7,"PG-13","Romance",38,91,14777,9.56
+"Greta",6.2,"R","Horror",53,98,2683,9.33
+"Tully",7,"R","Comedy",75,95,38019,9.23
+"Traffik",6,"R","Thriller",37,96,16169,9.19
+"Can You Ever Forgive Me?",7.2,"R","Biography",87,106,22661,8.8
+"Unfriended: Dark Web",5.8,"R","Horror",53,92,11515,8.78
+"Early Man",6.1,"PG","Animation",68,89,15090,8.27
+"Higher Power",5.3,"R","Thriller",NA,93,2052,8.23
+"Unsane",6.4,"R","Horror",63,98,29885,7.73
+"Beautiful Boy",7.3,"R","Biography",62,120,25463,7.65
+"Mid90s",7.4,"R","Comedy",66,85,16249,7.36
+"Dog Days",6.1,"PG","Comedy",47,113,2215,6.81
+"Boy Erased",7,"R","Biography",69,115,14715,6.79
+"Hotel Artemis",6.1,"R","Action",58,94,26810,6.71
+"A-X-L",5.2,"PG","Family",29,98,5559,6.5
+"Unbroken: Path to Redemption",5.7,"PG-13","Biography",39,98,1240,6.22
+"The Hurricane Heist",5.1,"PG-13","Thriller",35,103,14475,6.12
+"Every Day",6.4,"PG-13","Romance",52,97,11998,6.1
+"Leave No Trace",7.2,"PG","Drama",88,109,29991,6.05
+"God's Not Dead: A Light in Darkness",4.4,"PG","Drama",33,105,2431,5.73
+"Kin",5.7,"PG-13","Action",35,102,7637,5.72
+"Run the Race",6.5,"PG","Drama",35,101,441,5.58
+"Stan & Ollie",7.5,"PG","Biography",75,98,8407,5.17
+"Colette",6.8,"R","Biography",74,111,9942,5.14
+"Simmba",6.4,"Not Rated","Comedy",NA,158,13211,5.08
+"Action Point",5,"R","Comedy",36,85,5822,5.06
+"Beirut",6.4,"R","Thriller",69,109,14104,5.02
+"Gringo",6.1,"R","Comedy",46,111,20203,4.97
+"Samson",4.4,"PG-13","Action",17,110,3263,4.72
+"Cold War",7.7,"R","Romance",90,89,28514,4.51
+"Gotti",4.8,"R","Biography",24,112,9081,4.34
+"Blindspotting",7.4,"R","Comedy",77,95,14741,4.33
+"Johnny English Strikes Again",6.2,"PG","Comedy",39,89,42425,4.28
+"Ya Veremos",5.5,"PG-13","Drama",25,85,479,4.17
+"Life Itself",6.5,"R","Romance",21,117,7737,4.1
+"Replicas",5.4,"PG-13","Thriller",19,107,11439,4.05
+"Ben Is Back",6.8,"R","Drama",67,103,6434,3.7
+"Gosnell: The Trial of America's Biggest Serial Killer",6.9,"PG-13","Drama",NA,93,3024,3.68
+"Bharat Ane Nenu",8,"Not Rated","Action",NA,173,12987,3.55
+"Indivisible",5.6,"PG-13","Drama",53,119,691,3.51
+"The Oscar Nominated Short Films 2018: Live Action",7.9,"R","Action",NA,96,182,3.51
+"Juliet, Naked",6.6,"R","Comedy",67,97,9847,3.44
+"Bad Samaritan",6.4,"R","Thriller",42,110,12344,3.44
+"Supercon",3.7,"R","Comedy",9,100,537,3.4
+"Shoplifters",8.1,"R","Drama",93,121,22681,3.25
+"7 Days in Entebbe",5.8,"PG-13","Action",49,107,9624,3.19
+"The Sisters Brothers",7,"R","Comedy",78,122,24322,3.14
+"Sgt. Stubby: An American Hero",6.9,"PG","Family",57,84,1089,3.14
+"American Animals",7,"R","Biography",68,116,26509,2.86
+"God Bless the Broken Road",5.1,"PG","Family",31,111,517,2.85
+"La Boda de Valentina",4.7,"R","Romance",NA,107,502,2.78
+"Qué León",6.3,"PG-13","Romance",NA,93,121,2.59
+"Suspiria",6.9,"R","Horror",64,152,28606,2.47
+"Hearts Beat Loud",6.9,"PG-13","Comedy",65,97,5726,2.39
+"1991",7.2,"Not Rated","Comedy",NA,141,361,2.34
+"At Eternity's Gate",6.9,"PG-13","Biography",78,111,12551,2.29
+"Arctic",7.3,"PG-13","Action",71,98,2596,2.08
+"La chute de l'empire américain",7.4,"R","Comedy",63,127,374,2.06
+"Everybody Knows",7,"R","Drama",68,133,14144,2.05
+"Puzzle",6.8,"R","Drama",66,103,2987,2.03
+"The Front Runner",6.2,"R","Biography",61,113,4854,2
+"Tang ren jie tan an 2",6.1,"R","Comedy",48,121,1192,1.98
+"Assassination Nation",5.9,"R","Comedy",56,108,7159,1.96
+"Race 3",2.1,"Not Rated","Thriller",NA,160,28412,1.69
+"Padman",8,"PG-13","Biography",NA,140,14796,1.66
+"A Private War",6.7,"R","Biography",75,110,7235,1.63
+"Hong hai xing dong",6.8,"Not Rated","Thriller",NA,142,4247,1.54
+"Destroyer",6.5,"R","Action",62,121,5649,1.53
+"Capharnaüm",8.4,"R","Drama",75,126,10895,1.49
+"Thugs of Hindostan",3.9,"Not Rated","Action",NA,164,14633,1.45
+"Don't Worry, He Won't Get Far on Foot",6.9,"R","Biography",67,114,12610,1.44
+"Little Women",4.6,"PG-13","Family",40,112,511,1.38
+"102 Not Out",7.5,"PG","Comedy",NA,102,4614,1.34
+"Baaghi 2",5.1,"Not Rated","Thriller",NA,137,7128,1.32
+"The Seagull",5.7,"PG-13","Romance",58,98,1571,1.25
+"An Interview with God",5.8,"Not Rated","Drama",NA,97,1185,1.25
+"Mandy",6.6,"Not Rated","Horror",81,121,39798,1.21
+"Beautifully Broken",5.6,"PG-13","Drama",NA,108,236,1.21
+"Singwa hamkke: Ingwa yeon",7.1,"Not Rated","Action",NA,142,2985,1.2
+"Andhadhun",8.6,"Not Rated","Thriller",NA,139,37196,1.19
+"Astérix: Le secret de la potion magique",7,"Not Rated","Animation",NA,85,1407,1.04
+"Wildlife",7,"PG-13","Drama",80,105,11129,1.03
+"Raid",7.4,"Not Rated","Action",NA,122,11143,1.01
+"Nada a Perder",6.6,"PG","Biography",NA,134,22503,1
+"Little Italy",5.7,"R","Romance",28,102,4935,0.99
+"Werk ohne Autor",7.7,"R","Thriller",69,188,2414,0.91
+"The Miseducation of Cameron Post",6.6,"Not Rated","Drama",69,91,10553,0.9
+"Kedarnath",5.9,"Not Rated","Romance",NA,116,3555,0.9
+"Mirai",7.1,"PG","Animation",81,98,4394,0.81
+"Sui Dhaaga: Made in India",6.8,"Not Rated","Comedy",NA,122,4834,0.79
+"Pokémon the Movie: The Power of Us",6.5,"Not Rated","Animation",NA,97,708,0.79
+"Border",7.1,"R","Romance",75,110,7825,0.77
+"Chao shi kong tong ju",6.5,"Not Rated","Romance",NA,101,563,0.75
+"Vox Lux",6.1,"R","Drama",68,114,5940,0.73
+"Burning",7.6,"Not Rated","Drama",90,148,16876,0.72
+"The Little Stranger",5.6,"R","Horror",67,111,4245,0.71
+"The Catcher Was a Spy",6.1,"R","Biography",49,98,3963,0.71
+"Zhuo yao ji 2",5.3,"Not Rated","Comedy",63,110,911,0.71
+"Boundaries",4.6,"R","Comedy",50,104,1471,0.7
+"Yi chu hao xi",6.3,"Not Rated","Comedy",61,134,913,0.67
+"Lizzie",5.8,"R","Biography",59,105,3485,0.64
+"Manmarziyaan",6.9,"Not Rated","Romance",NA,156,4585,0.57
+"Wu ming zhi bei",7.1,"Not Rated","Comedy",NA,109,817,0.55
+"Monsters and Men",5.5,"R","Thriller",68,96,1042,0.5
+"Gongjak",7.2,"Not Rated","Drama",69,137,1083,0.5
+"The Great Battle",7,"Not Rated","Action",NA,136,1230,0.47
+"The Happy Prince",6.3,"R","Biography",64,105,2739,0.47
+"The Oath",5.2,"R","Thriller",58,93,1884,0.4
+"We the Animals",7,"R","Drama",84,94,2262,0.4
+"Soorma",7.4,"PG-13","Biography",NA,131,3384,0.39
+"Believer",6.3,"Not Rated","Action",58,123,815,0.37
+"Climax",7.3,"R","Horror",69,97,17938,0.34
+"Hichki",7.5,"Not Rated","Comedy",NA,116,6938,0.33
+"Damsel",5.6,"R","Comedy",63,113,1804,0.31
+"Huang jin xiong di",5.7,"Not Rated","Action",NA,100,440,0.29
+"Kimi no suizô o tabetai",7.7,"Not Rated","Animation",NA,108,779,0.28
+"Pájaros de verano",7.9,"Not Rated","Drama",86,125,2698,0.27
+"Di Renjie zhi Sidatianwang",6.3,"Not Rated","Action",58,132,1416,0.26
+"What They Had",6.6,"R","Drama",69,101,1498,0.26
+"London Fields",4.4,"R","Thriller",16,118,1944,0.25
+"Batti Gul Meter Chalu",6.3,"Not Rated","Drama",NA,161,3742,0.25
+"Lords of Chaos",6.5,"R","Biography",47,118,3410,0.25
+"La disparition des lucioles",6.9,"Not Rated","Drama",NA,96,160,0.24
+"Skate Kitchen",6.8,"R","Drama",72,106,2013,0.24
+"Seuwingkizeu",7.7,"Not Rated","Drama",NA,133,449,0.22
+"Dong du te gong",5.1,"Not Rated","Romance",NA,101,330,0.21
+"The Guilty",7.5,"R","Thriller",83,85,20634,0.21
+"Gukgabudo-ui Nal",6.8,"Not Rated","Drama",NA,114,249,0.2
+"Gloria Bell",6.7,"R","Romance",82,102,524,0.19
+"Xi you ji zhi nü er guo",5.5,"Not Rated","Action",51,114,913,0.19
+"Madeline's Madeline",6.4,"Not Rated","Thriller",76,93,2156,0.18
+"Karwaan",7.5,"Not Rated","Comedy",NA,114,7865,0.18
+"Ni hao, Zhihua",6.4,"Not Rated","Romance",NA,114,279,0.18
+"BuyBust",5.9,"Not Rated","Thriller",68,127,1132,0.18
+"Tam jeong 2",6.5,"Not Rated","Thriller",NA,116,268,0.17
+"Chang-gwol",6.2,"Not Rated","Horror",NA,121,940,0.17
+"Luis and His Friends from Outer Space",6.1,"PG","Animation",46,86,1160,0.15
+"Museo",7.1,"Not Rated","Drama",87,128,2985,0.15
+"The Little Mermaid",4.2,"PG","Action",NA,85,5613,0.15
+"The Rocket",4.8,"Not Rated","Family",NA,89,144,0.13
+"Support the Girls",6.5,"R","Comedy",85,93,3946,0.13
+"To Dust",6.4,"R","Drama",66,105,147,0.13
+"Nan ji jue lian",6.6,"PG-13","Action",NA,117,202,0.12
+"Unga Astrid",7.2,"Not Rated","Biography",71,123,1904,0.12
+"Gon-ji-am",6.2,"Not Rated","Horror",NA,95,2285,0.12
+"Nostalgia",5.4,"R","Drama",47,114,716,0.11
+"The Wedding Guest",5.7,"R","Thriller",59,97,172,0.11
+"Transit",7,"Not Rated","Drama",83,101,2419,0.11
+"The Negotiation",6.5,"Not Rated","Thriller",NA,114,634,0.11
+"Take Point",5.7,"Not Rated","Action",NA,119,344,0.11

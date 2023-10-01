@@ -137,7 +137,7 @@ library(ggformula)
 library(gridExtra)
 library(tidyverse)
 library(knitr)
-movies <- read.csv("movies2018.csv")
+movies <- read.csv("https://raw.githubusercontent.com/AndrewjSage/Stat_107/main/Data/movies2018.csv")
 movies <- movies %>% select(-c(meta_score, vote))
 names(movies) <- c("Title", "IMDB", "Rating", "Genre", "Runtime", "Revenue")
 ```
@@ -370,7 +370,7 @@ kable(movies %>% filter(Genre %in% c("Comedy", "Drama")) %>%
 
 \newpage
 
-# Hypothesis Tests for Categorical Data    
+# Hypothesis Testing for Categorical Data
 
 
 
@@ -527,7 +527,7 @@ The letter p has been used in three different symbols.
 In this section, we'll go through 12 steps to describe the process of hypothesis testing, using the dolphins study.   
 
 ```{r, echo=FALSE}
-Dolphins <- read.csv("Dolphins.csv")
+Dolphins <- read.csv("https://raw.githubusercontent.com/AndrewjSage/Stat_107/main/Data/Dolphins.csv")
 ```
 
 
@@ -582,7 +582,7 @@ We'll use a simulation-based hypothesis test for one proportion. This test is ap
 
 To perform the simulation, we'll use the following steps. 
 
-   1. Simulate flipping a coin that has a 50% chance of landing heads 16 times. In this case, heads represents the dolphins pressing the right button.   
+   1. Simulate flipping a coin that has a 50% chance of landing heads 33 times. In this case, heads represents the dolphins pressing the right button.   
    2. Record the number of heads.     
    3. Repeat steps 1 and 2 10,000 times.    
    4. Calculate how many of the 10,000 simulations resulted in a proportion of heads of 0.9375 or higher.    
@@ -768,7 +768,7 @@ The simulation can be performed using this [App](https://www.rossmanchance.com/a
 
 
 ```{r}
-Babies <- read.csv("Babies.csv")
+Babies <- read.csv("https://raw.githubusercontent.com/AndrewjSage/Stat_107/main/Data/Babies.csv")
 ```
 
 ### Step 1: Write the question of interest.   {-}
@@ -829,7 +829,7 @@ To perform the simulation, we'll perform the following steps. These are intended
 
 5. Calculate how many of the 10,000 simulations resulted in a difference in proportions as extreme as 0.267 (meaning more than 0.267 or less than -0.267)    
 
-6. If getting a difference in proportion as extreme more more extreme than 0.267 is rare, then we have evidence against the null hypothesis.   
+6. If getting a proportion as extreme more more extreme than 0.267 is rare, then we have evidence against the null hypothesis.   
 
 ### Step 9.	Perform the test to obtain a p-value.    {-}
 
@@ -861,7 +861,7 @@ The p-value is fairly small, indicating we have some evidence against the null h
 
 The fairly small p-value gives us some evidence against the null hypothesis. There seems to be some evidence that babies are note equally likely to imitate trustworthy and non-trustworthy adults, and seem to be more likely to imitate trustworthy ones. The 0.267 difference between the two groups is pretty big. Still, the p-value is not that small, which is likely due to our sample sizes being only 30 babies in each group. Since the data were collected in a randomized experiment, and it is reasonable to conclude that differences in the babies responses are caused by the adults' behavior. When generalizing results, we should only make conclusions about babies who grow up in similar circumstances (location, social dynamics, etc.) to the babies involved in the study. Researchers should try to replicate the study with more babies in each group, if possible. 
 
-# Hypothesis Tests for Quantitative Data
+# Hypothesis Testing for Quantitative Data
 
 In this Module, we'll perform hypothesis tests for quantitative, rather than categorical, response variables.   
 
@@ -883,7 +883,7 @@ knitr::include_graphics("Bass.png")
 
 The following passage comes from Statistics: Unlocking the Power of Data by Lock et al.  
 
-A [2004 study](https://www.tandfonline.com/doi/abs/10.1577/1548-8659(1993)122%3C0074%3AIOWCOM%3E2.3.CO%3B2) by Lange, T., Royals, H. and Connor, L. examined Mercury accumulation in large-mouth bass, taken from a sample of 53 Florida Lakes. 33 of the lakes were in Northern Florida and 20 were in Southern Florida. Location was determined relative to Interstate-50 that runs through the center of the state.
+A 2004 study by Lange, T., Royals, H. and Connor, L. (https://www.tandfonline.com/doi/abs/10.1577/1548-8659(1993)122%3C0074%3AIOWCOM%3E2.3.CO%3B2) examined Mercury accumulation in large-mouth bass, taken from a sample of 53 Florida Lakes. 33 of the lakes were in Northern Florida and 20 were in Southern Florida. Location was determined relative to Interstate-50 that runs through the center of the state.
 
 If Mercury accumulation exceeds 0.5 parts per million (ppm), then there are environmental concerns. In fact, the legal safety limit in Canada is 0.5 ppm, although it is 1 ppm in the United States. In this study, we'll investigate whether the data provide evidence of differences in mercury levels between lakes in Northern Florida, compared to Southern Florida.   
 
@@ -1026,7 +1026,6 @@ We found evidence of a difference in average mercury levels among all lakes in N
 \newpage
 
 
-
 ## Tests Involving a Single Mean
 
 We might also be interested in testing whether the data provide evidence that the average mercury level among all Florida lakes differs from 0.5 ppm. (Recall 0.5 ppm is the legal standard in Canada.)
@@ -1143,95 +1142,45 @@ In our sample of 53 lakes, the average mercury level was slightly higher than 0.
 
 \newpage
 
-# Statistical Inference
+# Theory-Based Inference 
 
-## Factors Affecting p-values
 
-### Sample Size and p-value  
+## Sampling Distributions and Standard Error
 
-Suppose we investigate the proportion of M&M's that are red. There are six different colors of M&M's.
 
-Null Hypothesis: The probability of getting a red M&M is $1/6 \approx(0.167)$.   
-Alternative Hypothesis: The probability of getting a red M&M is not $1/6 \approx(0.167)$.   
+### Factors Affecting p-values     
 
-Suppose that in a sample of 20 M&M's, we obtain 2 reds, a proportion of $\hat{p} = 0.1$ as our test statistic.
+How unusual would it be to get a sample of 53 lakes whose mean mercury concentration is 0.027 higher than the overall average?    
 
-We perform a simulation-based hypothesis test and obtain the following p-value.  
+To answer this, we need to understand the behavior of sample mean for samples of 53 lakes. 
 
+There are three factors that impact the p-values in a hypothesis test.  
 
 ```{r}
-set.seed(07022023)
-N20 <- SimulateProportion(n=20, x=2, p=1/6, alternative="two.sided", reps=10000)
-N20
-```
-The p-value is large, and we do not have evidence to say that the proportion of red M&M's is different than 1/6.   
-
-
-Now, suppose that we have 50 M&M's in our sample and obtain 5 reds. Our test statistic is the proportion $\frac{5}{50}$, which is still $\hat{p}=0.1$. 
-
-```{r}
-set.seed(07022023)
-N50 <- SimulateProportion(n=50, x=5, p=1/6, alternative="two.sided", reps=10000)
-N50 
-```
-
-Notice that the p-value has gotten samller, though it is still to large to conclude that the proportion of red M&M's is different than 1/6.   
-
-Now, suppose we get 10 reds in a sample of 100 M&M's, again a proportion of $\hat{p}=0.10$.   
-
-```{r}
-set.seed(07022023)
-N100 <- SimulateProportion(n=100, x=10, p=1/6, alternative="two.sided", reps=10000)
-N100
-```
-
-Now, the p-value is fairly small and provides some evidence that the proportion of red M&M's is not equal to 1/6.  
-
-Finally, suppose we have 50 red M&M's in a sample of 500, again a proportion of $\hat{p}=0.1$.   
-
-```{r}
-set.seed(07022023)
-N500 <- SimulateProportion(n=500, x=50, p=1/6, alternative="two.sided", reps=10000)
-N500
-```
-
-Now, we have very strong evidence that the proportion of red M&M's is different than 1/6.
-
-
-We have seen that as the sample size increases, the p-value gets smaller, even as the sample statistic $\hat{p}$ remains the same. This makes sense, because larger samples provide more information, and thus stronger evidence against the null hypothesis. 
-
-Putting all for histograms on a common scale, we see that the amount of spread in the null distribution decreases as the sample size grows, making a result as extreme as 0.10 more extreme.   
-
-```{r, fig.height=8, fig.width=10}
-library(gridExtra)
-grid.arrange(N20[[1]] + xlim(c(0,0.5)), N50[[1]]+ xlim(c(0,0.5)), N100[[1]]+ xlim(c(0,0.5)), N500[[1]]+ xlim(c(0,0.5)), nrow=2)
-
-```
-
-The same behavior can be observed when working with quantitative data, like the mercury levels in Florida Lakes. 
-
-Null Hypothesis: The average mercury level among all Florida lakes is 0.5 pmm.   
-
-Alternative Hypothesis: The average mercury level among all Florida lakes is different than 0.5 ppm.   
-
-We saw that the sample of 53 lakes yields a high p-value, meaning we do not have enough evidence to say that the average mercury level among all Florida lakes differs from 0.5 ppm.  
-
-```{r}
-set.seed(07052023)
 SimulateMean(x=FloridaLakes$Mercury, mu = 0.5, alternative="two.sided", reps=10000)
 ```
 
-Suppose we had a sample of 265 lakes (5 times as large), with the same sample mean and standard deviation as our original sample. The results of a simulation-based hypothesis test are shown below.   
 
 ```{r}
 set.seed(07052023)
-FloridaLakesC <- rbind(FloridaLakes, FloridaLakes,FloridaLakes,FloridaLakes,FloridaLakes) 
-SimulateMean(x=FloridaLakesC$Mercury, mu = 0.5, alternative="two.sided", reps=10000)
+FloridaLakesB <- cbind(FloridaLakes, FloridaLakes) 
+SimulateMean(x=FloridaLakesB$Mercury, mu = 0.5, alternative="two.sided", reps=10000)
 ```
 
-The p-value is smaller, though still not small enough to provide much evidence that the average mercury level differs from o.5. 
+**1.Size of the difference between the sample statistic and parameter value in the null hypothesis.** 
 
-Finally, imagine we had a sample of 530 lakes with the same mean and standard deviation as in our original sample.    
+For example, suppose the sample mean had been 0.577 ppm, instead of 0.527. (Thus farther away from the value of $\mu=0.5$) in the null hypothesis.   
+
+```{r}
+set.seed(07052023)
+FloridaLakesB <- FloridaLakes %>% mutate(Mercury=Mercury + 0.05)
+SimulateMean(x=FloridaLakesB$Mercury, mu = 0.5, alternative="two.sided", reps=10000)
+```
+As the size of the difference increases, the p-value decreases.
+
+This makes sense, as our sample statistic is farther away from what the null hypothesis said, making our data less consistent with the null hypothesis.   
+
+**2.Sample Size**
 
 ```{r}
 set.seed(07052023)
@@ -1239,28 +1188,30 @@ FloridaLakesC <- rbind(FloridaLakes, FloridaLakes,FloridaLakes,FloridaLakes,Flor
 SimulateMean(x=FloridaLakesC$Mercury, mu = 0.5, alternative="two.sided", reps=10000)
 ```
 
-Now, the p-value is small enough to provide evidence that the average mercury level among all Florida lakes is different (higher) than 0.5 ppm.  
+As the sample size increases, the p-value decreases.
+
+This makes sense, as larger samples give us more information, and thus stronger evidence against the null hypothesis.   
+
+**3.Standard deviation of individual observations**
+
+```{r}
+set.seed(07052023)
+FloridaLakesD <- FloridaLakes %>% mutate(Mercury = runif(53, -0.5, 1.5)) 
+FloridaLakesD <- FloridaLakesD %>% mutate(Mercury = Mercury -(mean(Mercury)-mean(FloridaLakes$Mercury)))
+SimulateMean(x=FloridaLakesD$Mercury, mu = 0.5, alternative="two.sided", reps=10000)
+```
 
 
-In general, as the sample size gets larger, we obtain stronger evidence against the null hypothesis. This suggests that when designing a study, we should make sure to use a big enough sample size to detect meaningful difference if they are there. At the same time, if our sample size is very large, then even very small differences will result in small p-values, so we should check whether the size of the difference is meaningful, and not make policy decisions based on p-values alone.   
+As the standard deviation increases, the p-value increases.
 
-### Other Factors Affecting p-values
-
-In addition to sample size, a p-value is affected by:   
-
-* **The size of the difference between our sample statistic and the parameter value in our null hypothesis** - the bigger the difference, the smaller the p-value, providing stronger evidence of a difference among the entire population.   
-
-* **The amount of variability in our sample data** - the more variability we see in our data (i.e. the higher the standard deviation), the less evidence we have against the null hypothesis, corresponding to a larger p-value.   
+This makes sense, as a larger standard deviation means there is more variability and uncertainty in our data, giving us weaker evidence against the null hypothesis.   
 
 
 
-## Sampling Distributions and Standard Error
 
-The distribution of a statistic across different samples of a given size is called the **sampling distribution** of the statistic. The null distribution we've seen is a special case of a sampling distribution. In the previous section's investigation, we saw histograms displaying the distribution of sample means in samples of predetermined sizes. These are examples of sampling distributions of the mean.    
+### Sample and Sampling Distribution
 
-It is important to distinguish between a sample and sampling distribution.
-
-The histogram below gives the distribution of the mercury levels of 53 lakes in our sample.   
+In the previous section's investigation, we saw two different histograms. The first gives the distribution of the mercury levels of 53 lakes in our sample. This distribution is shown again, below.     
 
 ```{r, echo=FALSE}
 set.seed(09262018)
@@ -1304,9 +1255,11 @@ T1 <- FloridaLakes %>% summarize(Mean=mean(Mercury), SD=sd(Mercury), N=n())
 kable(T1, caption="Summary statistics for 53 lakes in sample")
 ```
 
-The sampling distribution displays the distribution of the mean mercury concentration from many different samples of size 53. We could think of our sample as just one of the many making up this histogram.
+The second gives the distribution of the mean mercury concentration from many different samples of size 53. We could think of our sample as just one of the many making up this histogram. This distribution is called the **sampling distribution of the mean**.
 
-The sampling distribution of the mean mercury level for samples of 53 lakes is shown below. 
+The **sampling distribution** of a statistic is the distribution of that statistic across many different samples of a given size.   
+
+
 
 ```{r}
 LakesNullDist53
@@ -1326,7 +1279,7 @@ kable(T1, caption="Summary statistics distribution of mean in samples of size 53
 
 The standard deviation in a sampling distribution for a statistic is called the **standard error** of that statistic. The standard deviation in the second table is called the standard error of the mean.    
 
-### Sample Standard Deviation and Standard Error
+### Effect of Sample Size
 
 Distribution of Mercury Levels in Individual Lakes (Samples of size 10, 30, 100, and 1,000):
 
@@ -1361,7 +1314,9 @@ grid.arrange(Hist_S10, Hist_S30, Hist_S100, Hist_S1000, ncol=5)
 ```
 
 
-The standard deviation of the sampling distribution for a statistic is called the **standard error** of that statistic. 
+
+
+Distribution of Sample Means: (**sampling distribution for the mean**) 
 
 
 ```{r, fig.width=10, echo=FALSE}
@@ -1379,7 +1334,8 @@ LakesNullDist1000 <- gf_dhistogram(~MeanHg, data=Lakes1000, border=0, fill="blue
 grid.arrange(LakesNullDist10, LakesNullDist30, LakesNullDist100, LakesNullDist1000, ncol=4)
 ```
 
-The table shows the average standard deviation and standard error of the mean for samples of various sizes.   
+
+The table shows the average standard deviation and standard error of the mean for samples of various size.   
 
 ```{r}
 SE10 <- sd(Lakes10$MeanHg)
@@ -1404,45 +1360,33 @@ As  the sample size increases:
 * the standard error of the mean (variability between sample means) decreases      
 
 
-### Standard Error Formulas
+### Standard Error Formula
 
-We've seen that standard errors decrease as the sample size increases. In fact, there is a mathematical formula that can be used to calculate the standard error for statistics like means and proportions, as well as differences between them.  
+The "theoretical" standard error of a sample mean is:
 
-**Table of Standard Errors**   
+\[
+\text{SE}(\bar{x}) = \frac{s}{\sqrt{n}},
+\]
 
-| Situation | Statistic | Standard Error |
-|-----------------|-----------------|-----------------|
-| Mean| $\bar{x}$ | $\frac{s}{\sqrt{n}}$ |
-| Difference in Means | $\bar{x}_1 - \bar{x}_2$ | $\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}$ |
-| Proportion | $\hat{p}$ | $\sqrt{\frac{p(1-p)}{n}}$ |
-| Difference in Proportions | $\hat{p}_1-\hat{p}_2$ | $\sqrt{\hat{p}(1-\hat{p})\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}$ |
+where $\bar{x}$ represents the sample mean, $s$ is the sample standard deviation and $n$ is the sample size.   
 
-where $\bar{x}$ represents a sample mean, $s$ is the sample standard deviation, $\hat{p}$ represents a sample proportion and $n$ represents the sample size.   
+**Example:**  
 
+For a sample of size 53, with standard deviation 0.341, 
 
-### Example 1: Standard Error of the Mean
-
-The standard error of the mean is the standard deviation in the sampling distribution of the mean, shown below.  
-
-```{r}
-SimulateMean(x=FloridaLakes$Mercury, mu = 0.5, alternative="two.sided", reps=10000)[[1]]
-```
-
-For a sample of size 53 lakes, with standard deviation 0.341, 
-
-$$
-\begin{aligned}
-\text{SE}(\bar{x}) & = \frac{s}{\sqrt{n}} \\
-& = \frac{0.341}{\sqrt{53}} \\
-&=0.0468
-\end{aligned}
-$$
+\[
+\text{SE}(\bar{x}) = \frac{0.341}{\sqrt{53}}=0.0468
+\]
 
 This is very close to the standard error we obtained in our simulation.   
 
-### Example 2: Standard Error for a Difference in Means 
+### Sampling Distributions for Other Statistics    
 
-We compute the standard error for the difference in means between lakes in Northern and Southern Florida.  
+We've seen the sampling distribution for the mean of a single sample.   
+
+We've actually worked with sampling distributions before in 3 other contexts, without using that name.  
+
+**Sampling Distribution for a Difference in Means** (North vs South Lakes Example)
 
 ```{r}
 SimulateMean(x=(FloridaLakes%>%filter(Location=="N"))$Mercury, y=(FloridaLakes%>%filter(Location=="S"))$Mercury, alternative="two.sided", reps=10000)[[1]]
@@ -1452,19 +1396,15 @@ SimulateMean(x=(FloridaLakes%>%filter(Location=="N"))$Mercury, y=(FloridaLakes%>
 kable(FloridaLakes %>% group_by(Location) %>% summarize(Mean=mean(Mercury), SD=sd(Mercury), N=n()))
 ```
 
+**Standard Error Formula:**
 
+\[
+\text{SE}(\bar{x}_1-\bar{x}_2) = \sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}} = \sqrt{\frac{0.27^2}{33}+\frac{0.38^2}{20}} = 0.097
+\]
 
-$$
-\begin{aligned}
-\text{SE}(\bar{x}_1-\bar{x}_2) & = \sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}} \\
-& = \sqrt{\frac{0.27^2}{33}+\frac{0.38^2}{20}} \\
-& = 0.097
-\end{aligned}
-$$
+where $\bar{x}_1$, $\bar{x}_1$ represent sample means, $n_1$ and $n_2$ represent sample sizes, and $s_1$ and $s_2$ represent sample standard deviations. 
 
-### Example 3: Standard Error of a Proportion
-
-We'll compute the standard error for the proportion of correct attempts by the dolphins, under the null hypothesis that they are randomly guessing.   
+**Sampling Distribution for a Proportion** (Dolphins Example)
 
 ```{r, fig.height=3, fig.width=8, echo=FALSE, warning=FALSE}
 SimulateProportion(n=16, x=15, p=0.5, alternative="greater", reps=10000)[[1]]
@@ -1472,19 +1412,13 @@ SimulateProportion(n=16, x=15, p=0.5, alternative="greater", reps=10000)[[1]]
 
 **Standard Error Formula:**   
 
-$$
-\begin{aligned}
-\text{SE}(\hat{p}) & = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \\
-& =\sqrt{\frac{0.5(1-0.5)}{16}}\\
-&=0.125,
-\end{aligned}
-$$
+\[
+\text{SE}(\hat{p}) = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}=\sqrt{\frac{0.5(1-0.5)}{16}}=0.125,
+\]
 
+where $\hat{p}$ represents the sample proportion and $n$ represents the sample size.   
 
-### Example 4: Standard Error of difference in proportion. 
-
-We compute the standard error in the babies example, where 18 out of 30 in the "trustworthy" group imitated the adult, compared to 10 out of 30 in the "non-trustworthy" group.  
-
+**Sampling Distribution for a Difference in Proportions** (Babies Example)
 
 ```{r, fig.height=3, fig.width=8, echo=FALSE, warning=FALSE}
 SimulateProportion(n=c(30,30), x=c(18,10), alternative="two.sided", reps=10000)[[1]]
@@ -1498,28 +1432,91 @@ $\hat{p_1}=\frac{18}{30}$,
 $\hat{p_2}=\frac{10}{30}$, 
 $\hat{p} = \frac{18+10}{30+30}=\frac{28}{60}$
 
-$$
-\begin{aligned}
-\text{SE}(\hat{p}_1-\hat{p}_2) & = \sqrt{\hat{p}(1-\hat{p})\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}  \\ & =\sqrt{\frac{28}{60}\left(1-\frac{28}{60}\right)\left(\frac{1}{30}+\frac{1}{30}\right)} \\
-& = 0.1288
-\end{aligned}
-$$
+\[
+\text{SE}(\hat{p}_1-\hat{p}_2) = \sqrt{\hat{p}(1-\hat{p})\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}   \sqrt{\frac{28}{60}\left(1-\frac{28}{60}\right)\left(\frac{1}{30}+\frac{1}{30}\right)} = 0.1288
+\]
 
 where $\hat{p}$ represents the combined success proportion, and $n_1$ and $n_2$ represent the sample size.   
 
 
 
 
+### Table of Standard Errors   
+
+| Situation | Statistic | Standard Error |
+|-----------------|-----------------|-----------------|
+| Mean| $\bar{x}$ | $\frac{s}{\sqrt{n}}$ |
+| Difference in Means | $\bar{x}_1 - \bar{x}_2$ | $\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}$ |
+| Proportion | $\hat{p}$ | $\sqrt{\frac{p(1-p)}{n}}$ |
+| Difference in Proportions | $\hat{p}_1-\hat{p}_2$ | $\sqrt{\hat{p}(1-\hat{p})\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}$ |
 
 
+### Distribution of Sample Mean for Skewed Data   {.smaller}
 
+All of the sampling distributions we've seen so far have been symmetric and bell-shaped. While this is often the case, there are situations when the sampling distribution for a mean or proportion is not symmetric. This can happen when the distribution of the data in our sample (and the population it comes from) are skewed, and the sample size is small.
+
+
+Distribution of revenues for 2018 movies:
+
+```{r, fig.height=1.5, fig.width=6, echo=FALSE}
+movies_samp <- gf_histogram(~Revenue, data=movies, border=0, bins=25, fill="blue", color="black")%>%
+  gf_labs(title="Revenues of 2018 Movies", x="Revenue in Millions")
+movies_samp
+```
+
+The distribution of revenues for individual movies is heavily right-skewed.
+
+
+Let's see how this affects the sampling distribution of the mean for samples of various sizes.   
+
+```{r, echo=FALSE}
+set.seed(09262018)
+MeanRev <- c(rep(NA), 10000)
+SampleFilms <- function(sampsize){
+for( i in 1:10000){
+Rev <- movies[sample(1:nrow(movies), sampsize , replace=TRUE),]$Revenue 
+MeanRev[i] <- mean(Rev)
+}
+Results <- data.frame(MeanRev)
+return(Results)
+}
+```
+
+```{r, fig.height=2, fig.width=8, echo=FALSE}
+Films10 <- SampleFilms(10)
+Films30 <- SampleFilms(30)
+Films100 <- SampleFilms(100)
+```
+
+
+Distribution of Sample Means: (**sampling distribution for the mean**)
+
+```{r, fig.width=10, echo=FALSE}
+FilmsNullDist10 <- gf_dhistogram(~MeanRev, data=Films10, border=0, bins=75, fill="blue", color="black")%>%
+  gf_labs(x="Mean Revenue", y="Frequency", title="n=10") %>% gf_fitdistr(dist = "norm",  color="red") + xlim(c(0, 200))+ theme(axis.text.y=element_blank())
+FilmsNullDist30 <- gf_dhistogram(~MeanRev, data=Films30, border=0, bins=75, fill="blue", color="black")%>%
+  gf_labs(x="Mean Revenue", y="Frequency", title="n=30") %>% gf_fitdistr(dist = "norm",  color="red") + xlim(c(0, 200))+ theme(axis.text.y=element_blank())
+FilmsNullDist100 <- gf_dhistogram(~MeanRev, data=Films100, border=0, bins=75, fill="blue", color="black")%>%
+  gf_labs(x="Mean Revenue", y="Frequency", title="n=100")  %>% gf_fitdistr(dist = "norm",  color="red")+ xlim(c(0, 200))+ theme(axis.text.y=element_blank())
+
+grid.arrange(FilmsNullDist10, FilmsNullDist30, FilmsNullDist100, ncol=3)
+```
+
+As sample size increases:     
+
+* The variability in the distribution of $\bar{x}$ decreases     
+* The sampling distribution of $\bar{x}$ becomes more bell-shaped     
+
+When data are roughly symmetric to begin with, then the sampling distribution of the mean is also symmetric and bell-shaped, regardless of sample size.   
+
+When data are skewed the sampling distribution of the mean is also skewed for small samples, but gets more symmetric and bell-shaped as the sample size grows.    
+
+   - for quantitative data a common rule is that if the sample size is greater than 30, the sampling distribution will be approximately bell-shaped, though bigger samples might be needed if the data are severely skewed.   
+   - for categorical data a common rule is that we need at least 10 successes and 10 failures to guarantee a symmetric sampling distribution.   
      
 \newpage
      
-## Normal and t-Distributions
-
-Notice that most of the null sampling distributions we've seen have been roughly symmetric and bell-shaped. When this is the case, we can bypass performing a simulation, and approximate the null sampling distribution, using a symmetric, bell-shaped curve. For categorical data, we use a normal distribution, and for quantitative data, we use a t-distribution. Both of these are symmetric and bell-shaped curves.   
-
+## Standardized Statistics
 
 A standardized statistic tells how many standard errors a statistic lies above or below where it is expected to be if the null hypothesis is true.   
 
@@ -1586,12 +1583,32 @@ z=\frac{(\hat{p}_1-\hat{p}_2)-0}{\text{SE}(\hat{p}_1-\hat{p}_2)} = \frac{(\hat{p
 The difference in proportion of babies who imitated "trustworthy" adults compared to "non-trustworthy" ones among the babies in our sample is about 2.07 standard error higher than we would have expected it to be if the null hypothesis were true.  
 
 
+### Conditions for Using t-Distribution for Means
+
+When the sample size is large enough, standardized statistics follow symmetric bell-shaped distributions. We can use these to approximate the distribution of a statistic when the null hypothesis is true, allowing us to obtain a p-value, without using simulation.   
+
+The p-value represents the probability of obtaining a standardized statistic as extreme or more extreme than we did when the null hypothesis is true.  
+
+Tests based on standardized statistics are sometimes called "theory-based" tests.   
+
+### Conditions for using standardized statistics to obtain p-values     {-}
+
+**Categorical Data**    
+ - need at least 10 "successes" and 10 "failures" in each group.    
+ 
+**Quantitative Data**     
+ - the data in the sample are roughly symmetric   OR   the sample size for each group is fairly large ($n\geq 30$) and the data are not heavily skewed
+
+
+When these conditions are met, standardized statistics more extreme than $\pm 2$ provide evidence against the null hypothesis. These would roughly correspond to p-values less than 0.05.   
+
+When these conditions are not met, the simulation-based test is appropriate, but the "theory-based" test is not.   
+
 In a symmetric, bell-shaped distribution, approximately 95% of the total probability (area) lies within two standard errors of the mean.  
 
 ```{r, fig.width=7, fig.height=2.5, echo=FALSE}
 gf_dist("t", df = 100,  plot_size = 1, geom="area", fill="lightblue" )  %>% gf_labs(title="Distribution of Standardized Statistic") + xlab("Standardized Statistic (z or t)") + scale_x_continuous(breaks=seq(-4,4,1)) + scale_y_continuous(breaks=NULL) + geom_vline(xintercept = c(-2,2), color="red") + annotate("text", x = 0, y = 0.2, label = "95% of area")
 ```
-
 standardized statistics and p-values can be calculated directly in R using the `zprop.test` command for categorical data and the `t.test` for quantitative data.   
 
 
@@ -1626,7 +1643,6 @@ In the dolphins example, it is inappropriate to calculate a p-value using the z-
 t.test(x=FloridaLakes$Mercury, mu=0.5, alternative="two.sided")
 ```
 
-
 ### Florida Lakes N vs S {-}
 
 ```{r}
@@ -1639,82 +1655,6 @@ t.test(data=FloridaLakes, Mercury~Location, alternative="two.sided")
 zprop.test(x=c(18,10), n=c(30,30), alternative="two.sided", correct=FALSE)
 ```
 
-
-### Conditions for Using t-Distribution for Means
-
-All of the sampling distributions we've seen so far have been symmetric and bell-shaped. While this is often the case, there are situations when the sampling distribution for a mean or proportion is not symmetric. This can happen when the distribution of the data in our sample (and the population it comes from) are skewed, and the sample size is small.
-
-
-Distribution of revenues for 2018 movies:
-
-```{r, fig.height=1.5, fig.width=6, echo=FALSE}
-movies_samp <- gf_histogram(~Revenue, data=movies, border=0, bins=25, fill="blue", color="black")%>%
-  gf_labs(title="Revenues of 2018 Movies", x="Revenue in Millions")
-movies_samp
-```
-
-The distribution of revenues for individual movies is heavily right-skewed.
-
-
-Let's see how this affects the sampling distribution of the mean for samples of various sizes.   
-
-```{r, echo=FALSE}
-set.seed(09262018)
-MeanRev <- c(rep(NA), 10000)
-SampleFilms <- function(sampsize){
-for( i in 1:10000){
-Rev <- movies[sample(1:nrow(movies), sampsize , replace=TRUE),]$Revenue 
-MeanRev[i] <- mean(Rev)
-}
-Results <- data.frame(MeanRev)
-return(Results)
-}
-```
-
-```{r, fig.height=2, fig.width=8, echo=FALSE}
-Films10 <- SampleFilms(10)
-Films30 <- SampleFilms(30)
-Films100 <- SampleFilms(100)
-```
-
-
-Distribution of Sample Means: (**sampling distribution for the mean**)
-
-```{r, fig.width=10, echo=FALSE}
-FilmsNullDist10 <- gf_dhistogram(~MeanRev, data=Films10, border=0, bins=75, fill="blue", color="black")%>%
-  gf_labs(x="Mean Revenue", y="Frequency", title="n=10") %>% gf_fitdistr(dist = "norm",  color="red") + xlim(c(0, 200))+ theme(axis.text.y=element_blank())
-FilmsNullDist30 <- gf_dhistogram(~MeanRev, data=Films30, border=0, bins=75, fill="blue", color="black")%>%
-  gf_labs(x="Mean Revenue", y="Frequency", title="n=30") %>% gf_fitdistr(dist = "norm",  color="red") + xlim(c(0, 200))+ theme(axis.text.y=element_blank())
-FilmsNullDist100 <- gf_dhistogram(~MeanRev, data=Films100, border=0, bins=75, fill="blue", color="black")%>%
-  gf_labs(x="Mean Revenue", y="Frequency", title="n=100")  %>% gf_fitdistr(dist = "norm",  color="red")+ xlim(c(0, 200))+ theme(axis.text.y=element_blank())
-
-grid.arrange(FilmsNullDist10, FilmsNullDist30, FilmsNullDist100, ncol=3)
-```
-
-As sample size increases:     
-
-* The variability in the distribution of $\bar{x}$ decreases     
-* The sampling distribution of $\bar{x}$ becomes more bell-shaped     
-
-When data are roughly symmetric to begin with, then the sampling distribution of the mean is also symmetric and bell-shaped, regardless of sample size.   
-
-When data are skewed the sampling distribution of the mean is also skewed for small samples, but gets more symmetric and bell-shaped as the sample size grows.    
-
-   - for quantitative data a common rule is that if the sample size is greater than 30, the sampling distribution will be approximately bell-shaped, though bigger samples might be needed if the data are severely skewed.   
-   - for categorical data a common rule is that we need at least 10 successes and 10 failures to guarantee a symmetric sampling distribution.   
-
-### Conditions for using standardized statistics to obtain p-values     {-}
-
-**Categorical Data**    
- - need at least 10 "successes" and 10 "failures" in each group.    
- 
-**Quantitative Data**     
- - the data in the sample are roughly symmetric   OR   the sample size for each group is fairly large ($n\geq 30$) and the data are not heavily skewed
-
-
-When these conditions are met, standardized statistics more extreme than $\pm 2$ provide evidence against the null hypothesis. These would roughly correspond to p-values less than 0.05.   
-
-When these conditions are not met, the simulation-based test is appropriate, but the "theory-based" test is not.   
 
 \newpage
 
@@ -1786,7 +1726,6 @@ $$
 & = (0.07, 0.47)
 \end{aligned}
 $$
-
 We are 95% confident that the average mercury level among all lakes in Southern Florida is between 0.09 and 0.47 ppm higher than in Northern Florida.   
 
 We can also obtain this confidence interval in R.  
@@ -1807,7 +1746,6 @@ $$
 & = (0.01, 0.52) \\
 \end{aligned}
 $$
-
 We are 95% confident that the proportion of all babies who imitate trustworthy adults is between 0.01 and 0.52 higher than the proportion of all babies who imitate non-trustworthy adults.   
 
 Confidence interval using R:   
@@ -2808,7 +2746,7 @@ We'll start by analyzing differences between the grade levels.
 
 
 ```{r, include=FALSE}
-Students <- read.csv("Students.csv")
+Students <- read.csv("https://raw.githubusercontent.com/AndrewjSage/Stat_107/main/Data/Students.csv")
 names(Students)[4] <- "Location"
 ```
 
