@@ -1540,7 +1540,23 @@ Incorporating the standard error formulas we saw in the previous section, we arr
 | One Sample | $z=\frac{\hat{p}-p}{\sqrt{\frac{p(1-p)}{n}}}$  |  $t=\frac{\bar{x}-\mu}{s/\sqrt{n}}$   | 
 | Two Sample |  $z=\frac{(\hat{p}_1-\hat{p}_2)-0}{\sqrt{\hat{p}(1-\hat{p})\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}}$ | $t=\frac{\bar{x}_1-\bar{x}_2}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}$  | 
 
+**Notation:**    
 
+$\hat{p}$ - proportion of "successes" observed in the data (if there is more than 1 group, combine the groups together)     
+$p$ - proportion of successes from the null hypothesis     
+$n$ - total sample size     
+$\hat{p}_1$ - proportion of "successes" observed in the data for first group (when comparing two groups)    
+$\hat{p}_2$ - proportion of "successes" observed in the data for second group (when comparing two groups)    
+$n_1$ - sample size for first group (when comparing two groups)  
+$n_2$ - sample size for second group (when comparing two groups)   
+$\bar{x}$ - observed sample mean    
+$\mu$ - value of the mean in the null hypothesis     
+$\bar{x}_1$ - observed mean for first group (when comparing two groups)    
+$\bar{x}_2$ - observed mean for first group (when comparing two groups)    
+$s$ - sample standard deviation    
+$s_1$ - standard deviation for first group (when comparing two groups)    
+$s_2$ - standard deviation for second group (when comparing two groups)    
+   
 
 
 **Examples**    
