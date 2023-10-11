@@ -1204,7 +1204,7 @@ Putting all for histograms on a common scale, we see that the amount of spread i
 
 ```{r, fig.height=8, fig.width=10}
 library(gridExtra)
-grid.arrange(N20[[1]] + xlim(c(0,0.5)), N50[[1]]+ xlim(c(0,0.5)), N100[[1]]+ xlim(c(0,0.5)), N500[[1]]+ xlim(c(0,0.5)), nrow=2)
+grid.arrange(N20[[1]] + xlim(c(0,0.5)) + ggtitle("n=20"), N50[[1]]+ xlim(c(0,0.5))+ ggtitle("n=50"), N100[[1]]+ xlim(c(0,0.5))+ ggtitle("n=100"), N500[[1]]+ xlim(c(0,0.5))+ ggtitle("n=500"), nrow=2)
 
 ```
 
@@ -1347,11 +1347,11 @@ S1000 <- data.frame(Mercury)
 ```{r, fig.width=10}
 set.seed(07052023)
 Hist_S10 <- gf_dhistogram(~Mercury, data=data.frame(S10), border=0, fill="blue", color="black")%>%
-  gf_labs(x="Mean Mercury", y="Frequency", title="n=10")  + xlim(c(0, 1.5)) + theme(axis.text.y=element_blank())
+  gf_labs(x="Mercury", y="Frequency", title="n=10")  + xlim(c(0, 1.5)) + theme(axis.text.y=element_blank())
 Hist_S30 <- gf_dhistogram(~Mercury, data=data.frame(S30), border=0, fill="blue", color="black")%>%
-  gf_labs(x="Mean Mercury", y="Frequency", title="n=20")  + xlim(c(0, 1.5)) + theme(axis.text.y=element_blank())
+  gf_labs(x="Mercury", y="Frequency", title="n=20")  + xlim(c(0, 1.5)) + theme(axis.text.y=element_blank())
 Hist_S50 <- gf_dhistogram(~Mercury, data=data.frame(S50), border=0, fill="blue", color="black")%>%
-  gf_labs(x="Mean Mercury", y="Frequency", title="n=50") + xlim(c(0, 1.5)) + theme(axis.text.y=element_blank())
+  gf_labs(x="Mercury", y="Frequency", title="n=50") + xlim(c(0, 1.5)) + theme(axis.text.y=element_blank())
 Hist_S100 <- gf_dhistogram(~Mercury, data=data.frame(S100), border=0, fill="blue", color="black")%>%
   gf_labs(x="Mean Mercury", y="Frequency", title="n=100") + xlim(c(0, 1.5)) + theme(axis.text.y=element_blank())
 Hist_S1000 <- gf_dhistogram(~Mercury, data=data.frame(S1000), border=0, fill="blue", color="black")%>%
@@ -1530,6 +1530,17 @@ To calculate a standardized statistic, we divide the test statistic by its stand
 \]
 
 When the statistic is a proportion or difference in proportions, we use the letter $z$ to represent the standardized statistic. When the statistic is a mean or difference in means, we use the letter $t$. Standardized statistics are sometimes called $z$-scores or $t$-scores.   
+
+Incorporating the standard error formulas we saw in the previous section, we arrive at the following test statistic formulas.
+
+**Test Statistic Formulas:**
+
+|             |  Categorical Data | Quantitative Data | 
+|-----------|----------|-----------|
+| One Sample | $z=\frac{\hat{p}-p}{\sqrt{\frac{p(1-p)}{n}}}$  |  $t=\frac{\bar{x}-\mu}{s/\sqrt{n}}$   | 
+| Two Sample |  $z=\frac{(\hat{p}_1-\hat{p}_2)-0}{\sqrt{\hat{p}(1-\hat{p})\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}}$ | $t=\frac{\bar{x}_1-\bar{x}_2}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}$  | 
+
+
 
 
 **Examples**    
@@ -1735,6 +1746,17 @@ Thus, a 95% confidence interval for a parameter is given by:
 \[
 \text{Statistic} \pm 2\times \text{Standard Error}
 \]
+
+Incorporating the standard error formulas we've seen previously, we obtain the following confidence interval formulas.  
+
+**Approximate 95% Confidence Interval Formulas:**
+
+|             |  Categorical Data | Quantitative Data | 
+|-----------|----------|-----------|
+| One Sample | $\hat{p}\pm 2\times{\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}}$  |  $\bar{x}\pm 2\times\frac{s}{\sqrt{n}}$   | 
+| Two Sample |  $(\hat{p}_1-\hat{p}_2)\pm 2\times\sqrt{\hat{p}(1-\hat{p})\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}$ | $(\bar{x}_1-\bar{x}_2) \pm 2\times{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}$  | 
+
+For confidence levels other than 95%, change the multiplier from 2 to a multiplier appropriate for the desired confidence level.   
 
 ### Conditions for using standardized statistics to obtain confidence intervals     {-}
 
