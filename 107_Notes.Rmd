@@ -12,7 +12,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message=FALSE, warning=FALSE, fig.height = 2, fig.width = 6)
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE, fig.height = 2, fig.width = 6)
 library(tidyverse)
 library(ggformula)
 library(gridExtra)
@@ -36,6 +36,25 @@ source("https://raw.githubusercontent.com/AndrewjSage/Stat107_Notes/main/SBI.R")
 
 
 # Collecting, Summarizing, and Visualizing Data
+
+**Module 1 Learning Outcomes:**
+
+1. Explain how to collect sample data that is representative of a larger population.     
+2. Identify sources of sampling bias.   
+3. Identify confounding variables and explain how they impact our ability to draw inferences about causal relationships.     
+4. Distinguish between an observational study and an experiment.   
+5. Explain how design an experiment using the principles of experimental design (control, randomization, replication, blocking, blinding, and placebo), when appropriate.     
+6. Explain how to collect data in an ethical manner.    
+7. Identify the sample, population, statistic, and parameter of interest in a given study.  
+8. Distinguish between categorical and quantitative variables.    
+9. Interpret data graphics including bar graphs, histograms, boxplots, and scatterplots.      
+10. Draw conclusions about measures of center and spread (mean, median, interquartile range, standard deviation) based on graphical representations of data.    
+11. Draw conclusions about measures of center and spread based on written descriptions of data.    
+12. Explain how characteristics of a data distribution (including skewness and presence of outliers) affect measures of center and spread.    
+
+13. Use R to create informative data graphics (bar graph, histogram, boxplot, scatterplot).   
+
+\newpage
 
 ## Collecting Data
 
@@ -358,10 +377,10 @@ The higher the IQR or standard deviation, the more variability in the data.
 
 ```{r, echo=FALSE}
 kable(movies %>% filter(Genre %in% c("Comedy", "Drama")) %>% 
-  group_by(Genre) %>% summarize(Mean=mean(IMDB), 
-                                      median=median(IMDB),
+  group_by(Genre) %>% summarize(Mean=mean(IMDB) %>% round(2), 
+                                      Median=median(IMDB),
                                       IQR=IQR(IMDB),
-                                      stdev=sd(IMDB)))
+                                      StDev=sd(IMDB)%>% round(2)))
 ```
 
 * Dramas tend to score higher on average.  
@@ -372,7 +391,17 @@ kable(movies %>% filter(Genre %in% c("Comedy", "Drama")) %>%
 
 # Hypothesis Tests for Categorical Data    
 
+**Module 2 Learning Outcomes:**
 
+14. Identify the parameter of interest and sample statistic using words and symbols for categorical data with one or two samples.    
+15. State appropriate null and alternative hypotheses, using both words and symbols for categorical data with one or two samples.            
+16. Describe how to use simulation to test hypotheses for categorical data with one or two samples.        
+17. Define a p-value in a given context (i.e. "The p-value represents the probability of ...") for categorical data with one or two samples.        
+18. State what we should conclude from a p-value, in context, for categorical data with one or two samples.          
+19. Draw data-driven conclusions by synthesizing information including study design, statistical significance, and practical importance, for categorical data with one or two samples.         
+20. Use R to analyze categorical data.  
+
+\newpage
 
 ## Hypothesis Test for One Proportion: Dolphin Communication
 
@@ -435,13 +464,7 @@ Based on our results, does it seem likely that the dolphins were just guessing?
 set.seed(07022023)
 ```
 
-```{r, echo=FALSE}
-# n represents sample size
-# x represents successes
-# p-represents success proportion from null hypothesis
-# alternative represents direction of alternative hypothesis (either "greater", "less" or "two.sided")
-# reps represents number of simulations to perform.  
-
+```{r}
 SimulateProportion(n=16, x=15, p=0.5, alternative="greater", reps=10000)
 ```
 
@@ -495,13 +518,7 @@ The simulation-based hypothesis test would look like this.
 set.seed(07022023)
 ```
 
-```{r, echo=FALSE}
-# n represents sample size
-# x represents successes
-# p-represents success proportion from null hypothesis
-# alternative represents direction of alternative hypothesis (either "greater", "less" or "two.sided")
-# reps represents number of simulations to perform.  
-
+```{r}
 SimulateProportion(n=16, x=10, p=0.5, alternative="greater", reps=10000)
 ```
  
@@ -597,13 +614,7 @@ The simulation is performed in R. The code used to perform the simulation is sho
 set.seed(07022023)
 ```
 
-```{r, echo=FALSE}
-# n represents sample size
-# x represents successes
-# p-represents success proportion from null hypothesis
-# alternative represents direction of alternative hypothesis (either "greater", "less" or "two.sided")
-# reps represents number of simulations to perform.  
-
+```{r}
 SimulateProportion(n=16, x=15, p=0.5, alternative="greater", reps=10000)
 ```
 
@@ -627,7 +638,6 @@ The small p-value gives us strong evidence that the dolphins were not just rando
 
 \newpage
 
-\newpage
 
 ## Common Mistakes In Hypothesis Testing
 
@@ -640,7 +650,7 @@ A p-value tells us only about the strength of evidence **against the null hypoth
   - a small p-value (say $<0.10$) tells us there is strong evidence against the null hypothesis    
   - a large p-value DOES NOT support the null hypothesis. It just doesn't provide evidence against it! 
      
-```{r, out.width= '50%', fig.align="center"}
+```{r, out.width= '50%', fig.align="center", echo=FALSE}
 knitr::include_graphics("Evidence.jpg")
 ```
 
@@ -677,7 +687,7 @@ A p-value of 0.06 is practically no different than a p-value of 0.04.
 
 Instead of using a strict cutoff, interpret p-values on a sliding scale. The smaller the p-value, the stronger the evidence against the null hypothesis.   
 
-```{r}
+```{r, echo=FALSE}
 knitr::include_graphics("pvals.png")
 ```
 
@@ -689,7 +699,7 @@ These questions are intended to help you think about the main ideas behind hypot
 
 
 1. The results of the simulation based hypothesis test for the dolphins study are shown below.  
-```{r, echo=FALSE}
+```{r}
 SimulateProportion(n=16, x=15, p=0.5, alternative="greater", reps=10000)
 ```
     
@@ -699,7 +709,7 @@ SimulateProportion(n=16, x=15, p=0.5, alternative="greater", reps=10000)
     
 2. Consider the following pictures illustrating simulation-based hypothesis tests. 
 
-```{r, fig.width=10, fig.height=3}
+```{r, fig.width=10, fig.height=3, echo=FALSE}
 set.seed(07022023)
 C<- SimulateProportion(n=50, x=36, p=0.5, alternative="greater", reps=10000)[[1]] + ggtitle("C)")
 B<- SimulateProportion(n=20, x=14, p=0.5, alternative="greater", reps=10000)[[1]] + ggtitle("B)")
@@ -727,8 +737,11 @@ grid.arrange(A, B, C, D, ncol=4)
   
     A hypothesis test is carried out, and gives the following result.  
 
-```{r}
+```{r, echo=FALSE}
 set.seed(07022023)
+```
+
+```{r}
 SimulateProportion(n=23, x=14, p=0.5, alternative="greater", reps=10000)
 ```
   a) The output shows the observed proportion of 0.6086957. Explain where this number comes from.    
@@ -740,6 +753,8 @@ SimulateProportion(n=23, x=14, p=0.5, alternative="greater", reps=10000)
 5. A person takes a 10-question multiple choice quiz, with 5 choices (A-E) for each question. They answer 8 of the 10 questions correctly. To investigate whether this could have happened by chance, we simulate flipping a biased coin (with head probability of 0.2) many times. The number of heads seen in the simulations ranges from 0 to 6, most commonly getting around 2 or 3. 
      a) Draw a picture illustrating this simulation-based hypothesis test.     
      b) Comment on the size of the p-value. Would it be small? Why or why not?    
+
+\newpage
 
 ## Comparing Two Proportions: Can Babies Sense Trustworthy Adults?    
 
@@ -767,7 +782,7 @@ The simulation can be performed using this [App](https://www.rossmanchance.com/a
 ## Steps in a Hypothesis Test for Two Proportions     
 
 
-```{r}
+```{r, echo=FALSE}
 Babies <- read.csv("Babies.csv")
 ```
 
@@ -787,7 +802,7 @@ The explanatory variable is whether or not the adult was "trustworthy."
 
 Since we're displaying a two categorical variables, we'll use a stacked bar graph.   
 
-```{r}
+```{r, echo=FALSE}
 ggplot(data=Babies, aes(x=Adult)) + geom_bar(aes(fill=Imitated))
 ```
 
@@ -834,12 +849,6 @@ To perform the simulation, we'll perform the following steps. These are intended
 ### Step 9.	Perform the test to obtain a p-value.    {-}
 
 ```{r}
-# n represents sample size
-# x represents successes
-# p-represents success proportion from null hypothesis
-# alternative represents direction of alternative hypothesis (either "greater", "less" or "two.sided")
-# reps represents number of simulations to perform.  
-
 SimulateProportion(n=c(30,30), x=c(18,10), alternative="two.sided", reps=10000)
 ```
 
@@ -861,7 +870,21 @@ The p-value is fairly small, indicating we have some evidence against the null h
 
 The fairly small p-value gives us some evidence against the null hypothesis. There seems to be some evidence that babies are note equally likely to imitate trustworthy and non-trustworthy adults, and seem to be more likely to imitate trustworthy ones. The 0.267 difference between the two groups is pretty big. Still, the p-value is not that small, which is likely due to our sample sizes being only 30 babies in each group. Since the data were collected in a randomized experiment, and it is reasonable to conclude that differences in the babies responses are caused by the adults' behavior. When generalizing results, we should only make conclusions about babies who grow up in similar circumstances (location, social dynamics, etc.) to the babies involved in the study. Researchers should try to replicate the study with more babies in each group, if possible. 
 
+\newpage
+
 # Hypothesis Tests for Quantitative Data
+
+**Module 3 Learning Outcomes:**    
+
+21. Identify the parameter of interest and sample statistic using words and symbols for quantitative data with one or two samples.        
+22. State appropriate null and alternative hypotheses, using both words and symbols for quantitative data with one or two samples.                
+23. Describe how to use simulation to test hypotheses involving one or two samples for quantitative data with one or two samples.            
+24. Define a p-value in a given context (i.e. "The p-value represents the probability of ...")  for quantitative data with one or two samples.            
+25. State what we should conclude from a p-value, in context, for quantitative data with one or two samples.              
+26. Draw data-driven conclusions by synthesizing information including study design, statistical significance, and practical importance, for quantitative data with one or two samples.             
+
+27. Use R to analyze quantitative data.  
+
 
 In this Module, we'll perform hypothesis tests for quantitative, rather than categorical, response variables.   
 
@@ -873,6 +896,7 @@ The logic and thought processes will be very similar to what we've seen before, 
 | Parameter of interest   | unknown long-run proportion ($p$)   |  unknown overall mean ($\mu$)   |
 | Sample statistic   | prop. from sample ($\hat{p}$)   |  sample mean ($\bar{x}$)     |
 
+\newpage
 
 ## Comparing Two Means: Mercury Levels in Florida Lakes
 
@@ -892,7 +916,7 @@ knitr::include_graphics("Florida.png")
 ```
 
 
-```{r}
+```{r, echo=FALSE}
 library(Lock5Data)
 data(FloridaLakes)
 #Location relative to I-50
@@ -902,16 +926,16 @@ FloridaLakes <- FloridaLakes %>% select(Lake, AvgMercury, Location) %>% rename(M
 
 The first six lakes are shown below. Mercury levels are given in parts per million (ppm).   
 
-```{r}
+```{r, echo=FALSE}
 head(FloridaLakes)
 ```
 
 
-```{r}
+```{r, echo=FALSE}
 ggplot(data=FloridaLakes, aes(y=Location, x=Mercury)) + geom_boxplot() + geom_jitter()
 ```
 
-```{r}
+```{r, echo=FALSE}
 FloridaLakes %>% group_by(Location) %>% summarize(Mean=mean(Mercury), SD=sd(Mercury), N=n())
 ```
 
@@ -951,7 +975,7 @@ The explanatory variable is the lake's location (N or S). This variable is categ
 
 Since we're displaying a quantitative response variable and a categorical explanatory variable, we'll use a boxplot. The dots represent individual lakes.   
 
-```{r}
+```{r, echo=FALSE}
 ggplot(data=FloridaLakes, aes(y=Location, x=Mercury)) + geom_boxplot() + geom_jitter()
 ```
 
@@ -970,7 +994,7 @@ The sample is the 33 lakes in Northern Florida and 20 lakes in Southern Florida.
 
 The table shows the average mercury level, as well as the standard deviation and sample size in Northern and Southern Florida.   
 
-```{r}
+```{r, echo=FALSE}
 FloridaLakes %>% group_by(Location) %>% summarize(Mean=mean(Mercury), SD=sd(Mercury), N=n())
 ```
 
@@ -1001,7 +1025,9 @@ To perform the simulation, we'll perform the following steps. These are intended
 ### Step 9.	Perform the test to obtain a p-value.   {-}
 
 ```{r}
-SimulateMean(x=(FloridaLakes%>%filter(Location=="N"))$Mercury, y=(FloridaLakes%>%filter(Location=="S"))$Mercury, alternative="two.sided", reps=10000)
+SimulateMean(x=(FloridaLakes%>%filter(Location=="N"))$Mercury,
+             y=(FloridaLakes%>%filter(Location=="S"))$Mercury, 
+             alternative="two.sided", reps=10000)
 ```
 
 ### Step 10.	Interpret the p-value in context. “The p-value represents the probability of…”      {-}
@@ -1087,7 +1113,7 @@ The sample is the average mercury level among the 53 lakes in our sample denoted
 
 Using R, we calculate the average mercury level among the lakes in the sample, as well as standard deviation and sample size.   
 
-```{r}
+```{r, echo=FALSE}
 kable(FloridaLakes %>% summarize(Mean=mean(Mercury), SD=sd(Mercury), N=n()))
 ```
 
@@ -1145,6 +1171,25 @@ In our sample of 53 lakes, the average mercury level was slightly higher than 0.
 
 # Statistical Inference
 
+**Module 4 Learning Outcomes**    
+
+28. Explain the difference between the distribution of values in a sample and the sampling distribution for a statistic.    
+29. Show how to calculate standardized (z and t) statistics for categorical and quantitative data, with one or two samples.    
+30. Interpret standardized statistics in context.  
+31. Determine what standardized statistics tell us about the plausibility of the null hypothesis.     
+32. Determine whether conditions for using "theory-based" approaches like normal and t-distributions are met.    
+33. Interpret R output from hypothesis test commands.          
+34. Show how to calculate confidence intervals for means and proportions, and differences in means and proportions.      
+35. Interpret confidence intervals in context.      
+36. State how changes in sample size impact variability of sampling distributions, test statistics, p-values, and evidence against the null hypothesis, and the width of confidence intervals.     
+37. Determine when to use a paired t-test and when to use a t-test for independent samples.    
+38. Explain Simpson's paradox and how draw conclusions in situations involving it.  
+39. Distinguish between statistical significance and practical importance and make appropriate decisions based on these concepts.    
+40. Recognize situations where we should use multiple testing procedures such as the Bonferroni correction.     
+41. Use R to analyze data using theory-based tests and confidence intervals.     
+
+\newpage
+
 ## Factors Affecting p-values
 
 ### Sample Size and p-value  
@@ -1159,7 +1204,7 @@ Suppose that in a sample of 20 M&M's, we obtain 2 reds, a proportion of $\hat{p}
 We perform a simulation-based hypothesis test and obtain the following p-value.  
 
 
-```{r}
+```{r, echo=FALSE}
 set.seed(07022023)
 N20 <- SimulateProportion(n=20, x=2, p=1/6, alternative="two.sided", reps=10000)
 N20
@@ -1169,7 +1214,7 @@ The p-value is large, and we do not have evidence to say that the proportion of 
 
 Now, suppose that we have 50 M&M's in our sample and obtain 5 reds. Our test statistic is the proportion $\frac{5}{50}$, which is still $\hat{p}=0.1$. 
 
-```{r}
+```{r, echo=FALSE}
 set.seed(07022023)
 N50 <- SimulateProportion(n=50, x=5, p=1/6, alternative="two.sided", reps=10000)
 N50 
@@ -1179,7 +1224,7 @@ Notice that the p-value has gotten samller, though it is still to large to concl
 
 Now, suppose we get 10 reds in a sample of 100 M&M's, again a proportion of $\hat{p}=0.10$.   
 
-```{r}
+```{r, echo=FALSE}
 set.seed(07022023)
 N100 <- SimulateProportion(n=100, x=10, p=1/6, alternative="two.sided", reps=10000)
 N100
@@ -1189,7 +1234,7 @@ Now, the p-value is fairly small and provides some evidence that the proportion 
 
 Finally, suppose we have 50 red M&M's in a sample of 500, again a proportion of $\hat{p}=0.1$.   
 
-```{r}
+```{r, echo=FALSE}
 set.seed(07022023)
 N500 <- SimulateProportion(n=500, x=50, p=1/6, alternative="two.sided", reps=10000)
 N500
@@ -1202,7 +1247,7 @@ We have seen that as the sample size increases, the p-value gets smaller, even a
 
 Putting all for histograms on a common scale, we see that the amount of spread in the null distribution decreases as the sample size grows, making a result as extreme as 0.10 more extreme.   
 
-```{r, fig.height=8, fig.width=10}
+```{r, fig.height=8, fig.width=10, echo=FALSE}
 library(gridExtra)
 grid.arrange(N20[[1]] + xlim(c(0,0.5)) + ggtitle("n=20"), N50[[1]]+ xlim(c(0,0.5))+ ggtitle("n=50"), N100[[1]]+ xlim(c(0,0.5))+ ggtitle("n=100"), N500[[1]]+ xlim(c(0,0.5))+ ggtitle("n=500"), nrow=2)
 
@@ -1216,14 +1261,17 @@ Alternative Hypothesis: The average mercury level among all Florida lakes is dif
 
 We saw that the sample of 53 lakes yields a high p-value, meaning we do not have enough evidence to say that the average mercury level among all Florida lakes differs from 0.5 ppm.  
 
-```{r}
+```{r, echo=FALSE}
 set.seed(07052023)
+```
+
+```{r}
 SimulateMean(x=FloridaLakes$Mercury, mu = 0.5, alternative="two.sided", reps=10000)
 ```
 
 Suppose we had a sample of 265 lakes (5 times as large), with the same sample mean and standard deviation as our original sample. The results of a simulation-based hypothesis test are shown below.   
 
-```{r}
+```{r, echo=FALSE}
 set.seed(07052023)
 FloridaLakesC <- rbind(FloridaLakes, FloridaLakes,FloridaLakes,FloridaLakes,FloridaLakes) 
 SimulateMean(x=FloridaLakesC$Mercury, mu = 0.5, alternative="two.sided", reps=10000)
@@ -1233,7 +1281,7 @@ The p-value is smaller, though still not small enough to provide much evidence t
 
 Finally, imagine we had a sample of 530 lakes with the same mean and standard deviation as in our original sample.    
 
-```{r}
+```{r, echo=FALSE}
 set.seed(07052023)
 FloridaLakesC <- rbind(FloridaLakes, FloridaLakes,FloridaLakes,FloridaLakes,FloridaLakes,FloridaLakes,FloridaLakes,FloridaLakes,FloridaLakes,FloridaLakes) 
 SimulateMean(x=FloridaLakesC$Mercury, mu = 0.5, alternative="two.sided", reps=10000)
@@ -1252,7 +1300,7 @@ In addition to sample size, a p-value is affected by:
 
 * **The amount of variability in our sample data** - the more variability we see in our data (i.e. the higher the standard deviation), the less evidence we have against the null hypothesis, corresponding to a larger p-value.   
 
-
+\newpage
 
 ## Sampling Distributions and Standard Error
 
@@ -1294,12 +1342,12 @@ LakesNullDist53 <- gf_dhistogram(~MeanHg, data=Lakes53, border=0, fill="blue", c
   gf_labs(x="Mean Mercury", y="Frequency", title="Distribution of Mean Concentration in Samples of 53 Lakes")+ xlim(c(0, 1.5))+ theme(axis.text.y=element_blank())
 ```
 
-```{r}
+```{r, echo=FALSE}
 Lakes_samp
 ```
 
 
-```{r}
+```{r, echo=FALSE}
 T1 <- FloridaLakes %>% summarize(Mean=mean(Mercury), SD=sd(Mercury), N=n())
 kable(T1, caption="Summary statistics for 53 lakes in sample")
 ```
@@ -1308,14 +1356,14 @@ The sampling distribution displays the distribution of the mean mercury concentr
 
 The sampling distribution of the mean mercury level for samples of 53 lakes is shown below. 
 
-```{r}
+```{r, echo=FALSE}
 LakesNullDist53
 ```
 
 
 
 
-```{r}
+```{r, echo=FALSE}
 T1 <- Lakes53 %>% summarize(Mean=mean(MeanHg), SD=sd(MeanHg), N=n())
 kable(T1, caption="Summary statistics distribution of mean in samples of size 53")
 ```
@@ -1330,7 +1378,7 @@ The standard deviation in a sampling distribution for a statistic is called the 
 
 Distribution of Mercury Levels in Individual Lakes (Samples of size 10, 30, 100, and 1,000):
 
-```{r}
+```{r, echo=FALSE}
 set.seed(07052023)
 Mercury <- FloridaLakes[sample(1:nrow(FloridaLakes), 10 , replace=TRUE),]$Mercury 
 S10 <- data.frame(Mercury)
@@ -1344,7 +1392,7 @@ Mercury <- FloridaLakes[sample(1:nrow(FloridaLakes), 1000 , replace=TRUE),]$Merc
 S1000 <- data.frame(Mercury)
 ```
 
-```{r, fig.width=10}
+```{r, fig.width=10, echo=FALSE}
 set.seed(07052023)
 Hist_S10 <- gf_dhistogram(~Mercury, data=data.frame(S10), border=0, fill="blue", color="black")%>%
   gf_labs(x="Mercury", y="Frequency", title="n=10")  + xlim(c(0, 1.5)) + theme(axis.text.y=element_blank())
@@ -1353,9 +1401,9 @@ Hist_S30 <- gf_dhistogram(~Mercury, data=data.frame(S30), border=0, fill="blue",
 Hist_S50 <- gf_dhistogram(~Mercury, data=data.frame(S50), border=0, fill="blue", color="black")%>%
   gf_labs(x="Mercury", y="Frequency", title="n=50") + xlim(c(0, 1.5)) + theme(axis.text.y=element_blank())
 Hist_S100 <- gf_dhistogram(~Mercury, data=data.frame(S100), border=0, fill="blue", color="black")%>%
-  gf_labs(x="Mean Mercury", y="Frequency", title="n=100") + xlim(c(0, 1.5)) + theme(axis.text.y=element_blank())
+  gf_labs(x="Mercury", y="Frequency", title="n=100") + xlim(c(0, 1.5)) + theme(axis.text.y=element_blank())
 Hist_S1000 <- gf_dhistogram(~Mercury, data=data.frame(S1000), border=0, fill="blue", color="black")%>%
-  gf_labs(x="Mean Mercury", y="Frequency", title="n=1000")  + xlim(c(0, 1.5)) + theme(axis.text.y=element_blank())
+  gf_labs(x="Mercury", y="Frequency", title="n=1000")  + xlim(c(0, 1.5)) + theme(axis.text.y=element_blank())
 
 grid.arrange(Hist_S10, Hist_S30, Hist_S100, Hist_S1000, ncol=5)
 ```
@@ -1381,7 +1429,7 @@ grid.arrange(LakesNullDist10, LakesNullDist30, LakesNullDist100, LakesNullDist10
 
 The table shows the average standard deviation and standard error of the mean for samples of various sizes.   
 
-```{r}
+```{r, echo=FALSE}
 SE10 <- sd(Lakes10$MeanHg)
 SD10 <- mean(Lakes10$SDHg)
 SE30 <- sd(Lakes30$MeanHg)
@@ -1448,7 +1496,7 @@ We compute the standard error for the difference in means between lakes in North
 SimulateMean(x=(FloridaLakes%>%filter(Location=="N"))$Mercury, y=(FloridaLakes%>%filter(Location=="S"))$Mercury, alternative="two.sided", reps=10000)[[1]]
 ```
 
-```{r}
+```{r, echo=FALSE}
 kable(FloridaLakes %>% group_by(Location) %>% summarize(Mean=mean(Mercury), SD=sd(Mercury), N=n()))
 ```
 
@@ -1518,6 +1566,8 @@ where $\hat{p}$ represents the combined success proportion, and $n_1$ and $n_2$ 
      
 ## Normal and t-Distributions
 
+### Standardized Statistics
+
 Notice that most of the null sampling distributions we've seen have been roughly symmetric and bell-shaped. When this is the case, we can bypass performing a simulation, and approximate the null sampling distribution, using a symmetric, bell-shaped curve. For categorical data, we use a normal distribution, and for quantitative data, we use a t-distribution. Both of these are symmetric and bell-shaped curves.   
 
 
@@ -1561,7 +1611,7 @@ $s_2$ - standard deviation for second group (when comparing two groups)
 
 **Examples**    
 
-1. One Mean (Florida Lakes)
+### 1. One Mean (Florida Lakes)   {-}
 
 The sample mean was $\bar{x}=0.527$ and the null hypothesis was that the population mean $\mu=0.5$.
 
@@ -1573,7 +1623,7 @@ t= \frac{\bar{x}-\mu}{\text{SE}(\bar{x})} =\frac{0.527-0.5}{ \frac{0.341}{\sqrt{
 
 The average mercury level among the lakes in our sample is about 0.58 standard errors higher than we would have expected it to be if the null hypothesis were true.  
 
-2. Difference in Means (N vs S Lakes) 
+### 2. Difference in Means (N vs S Lakes)  {-}
 
 The observed difference was $0.6965-0.4245 = 0.272$ ppm. The null hypothesis was that the difference was 0 ($\mu_1-\mu_2=0$)
 
@@ -1590,7 +1640,7 @@ t = \frac{(\bar{x}_1-\bar{x}_2) -0}{\text{SE}(\bar{x}_1-\bar{x}_2)} = \frac{\bar
 The difference in average mercury level between Northern Florida and Southern Florida lakes in our sample is about 2.78 standard errors higher than we would have expected it to be if the null hypothesis were true.  
 
 
-3. Single Proportion  - dolphins example    
+### 3. Single Proportion  - dolphins example  {-}   
 
 Statistic is $\hat{p}=\frac{15}{16}$, null hypothesis is $p=0.5$
 
@@ -1602,7 +1652,7 @@ z= \frac{\hat{p}-p}{\text{SE}(\hat{p})} = \frac{\hat{p}-p}{\sqrt{\frac{p(1-p)}{n
 
 The proportion of attempts that the dolphins got correct is 3.5 standard errors higher than we would have expected it to be if the null hypothesis were true.  
 
-4. Babies Example
+### 4. Babies Example   {-}
 
 The statistic is the difference in proportions $\hat{p}_1-\hat{p}_2 = \frac{18}{30} - \frac{10}{30} = 0.2667$. The null hypothesis is that the difference is $p_1-p_2=0$.
 
@@ -1612,6 +1662,7 @@ z=\frac{(\hat{p}_1-\hat{p}_2)-0}{\text{SE}(\hat{p}_1-\hat{p}_2)} = \frac{(\hat{p
 
 The difference in proportion of babies who imitated "trustworthy" adults compared to "non-trustworthy" ones among the babies in our sample is about 2.07 standard error higher than we would have expected it to be if the null hypothesis were true.  
 
+### Distributions of z and t-statistics
 
 In a symmetric, bell-shaped distribution, approximately 95% of the total probability (area) lies within two standard errors of the mean.  
 
@@ -1625,7 +1676,7 @@ standardized statistics and p-values can be calculated directly in R using the `
 ### Null Distributions Using Standardized Statistics {-}
 
 
-```{r}
+```{r, echo=FALSE}
 P1 <- gf_dist("t", df = 100,  plot_size = 1, geom="area",  fill = ~! (abs(x) > 0.58), show.legend=FALSE ) %>% gf_labs(title="Lakes") + xlab("Standardized Statistic") + scale_x_continuous(breaks=seq(-4,4,1)) + scale_y_continuous(breaks=NULL) + geom_vline(xintercept = c(-0.58,0.58), color="red")
 P2 <- gf_dist("t", df = 100,  plot_size = 1, geom="area", fill = ~! (abs(x) > 2.78), show.legend=FALSE ) %>% gf_labs(title="N v S Lakes") + xlab("Standardized Statistic") + scale_x_continuous(breaks=seq(-4,4,1)) + scale_y_continuous(breaks=NULL) + geom_vline(xintercept = c(-2.78,2.78), color="red")
 P3 <- gf_dist("t", df = 100,  plot_size = 1, geom="area", fill = ~! (abs(x) > 2.07), show.legend=FALSE ) %>% gf_labs(title="Babies") + xlab("Standardized Statistic") + scale_x_continuous(breaks=seq(-4,4,1)) + scale_y_continuous(breaks=NULL) + geom_vline(xintercept = c(-2.07,2.07), color="red")
@@ -1636,7 +1687,7 @@ grid.arrange(P1, P2, P3, ncol=3)
 We compare these to the distributions we saw using simulation.  
 
 
-```{r}
+```{r, echo=FALSE}
 PB1 <- SimulateMean(x=FloridaLakes$Mercury, mu = 0.5, alternative="two.sided", reps=10000)[[1]] + ggtitle("Lakes")
 PB2 <-SimulateMean(x=(FloridaLakes%>%filter(Location=="N"))$Mercury, y=(FloridaLakes%>%filter(Location=="S"))$Mercury, alternative="two.sided", reps=10000)[[1]] + ggtitle("N vs S Lakes")
 PB3 <- SimulateProportion(n=c(30,30), x=c(18,10), alternative="two.sided", reps=10000)[[1]] + ggtitle("Babies")
@@ -1985,7 +2036,7 @@ $t=\frac{\bar{x}_d}{\frac{s_d}{\sqrt{n}}} = \frac{0.075}{\frac{0.0883}{\sqrt{22}
 ```{r, echo=FALSE}
 gf_dist("t", df = 21,  plot_size = 1, geom="area", fill=~!abs(x)>3.98 ) + 
   geom_vline(xintercept=3.98, colour="red") +
-  geom_vline(xintercept=-3.98, colour="red") + guides(fill="none")
+  geom_vline(xintercept=-3.98, colour="red") + guides(fill="none") + xlab("t")
 ```
 
 p-value:
@@ -2020,7 +2071,7 @@ $t=\frac{(\bar{x}_1-\bar{x}_2)}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}=\fra
 ```{r, echo=FALSE}
 gf_dist("t", df = 21,  plot_size = 1, geom="area", fill=~!abs(x)>0.93) + 
   geom_vline(xintercept=0.93, colour="red") + 
-  geom_vline(xintercept=-0.93, colour="red") + guides(fill="none")
+  geom_vline(xintercept=-0.93, colour="red") + guides(fill="none") + xlab("t")
 ```
 
 p-value:
@@ -2068,7 +2119,7 @@ gf_point(data=Baserunners_long, Time~Angle) %>%
 
 The population of interest is all base runners.  The parameter of interest is the average difference in the  amount of time it takes to run from home plate to second base using the narrow angle, compared to the wide angle. ($\mu_d$)  
 
-### Step 5.	Identify the sample and sample statistic in words and symbols.    
+### Step 5.	Identify the sample and sample statistic in words and symbols.    {-}   
 
 The sample is the 22 baserunners in the study. The sample statistic is the average difference in amount of time it takes to run from home plate to second base for these 22 runners. ($\bar{x}_d$).
 
@@ -2083,7 +2134,7 @@ kable(T)
 
 The sample statistic is $\bar{x}_d = 0.075$ sec.
 
-### Step 7.	State the null and alternative hypotheses.    
+### Step 7.	State the null and alternative hypotheses.   {-}   
 
 
 **Null Hypothesis:** There is no difference between average running times using the wide and narrow angles, among all baserunners. $\mu_d=0$.    
@@ -2091,11 +2142,11 @@ The sample statistic is $\bar{x}_d = 0.075$ sec.
 **Alternative Hypothesis:** There is a difference between average running times using the wide and narrow angles, among all baserunners. $\mu_d\neq 0$
 
 
-### Step 8.	Explain why it is appropriate to use a "theory-based" t-test on these data. 
+### Step 8.	Explain why it is appropriate to use a "theory-based" t-test on these data.  {-} 
 
 Since the running times are roughly symmetric for each strategy, it is reasonable to use the t-test.   
 
-### Step 9.	Perform the test to obtain a p-value.** 
+### Step 9.	Perform the test to obtain a p-value.   {-} 
 
 
 ```{r, echo=TRUE}
@@ -2103,16 +2154,16 @@ t.test(x=Baserunners$narrow, y=Baserunners$wide, paired = TRUE)
 ```
 
 
-### Step 10.	Interpret the p-value in context. “The p-value represents the probability of…”
+### Step 10.	Interpret the p-value in context. “The p-value represents the probability of…”    {-}
 
 The p-value represents the probability of obtaining a mean difference as extreme or more extreme than 0.075, if there is no difference in the amount of time it takes to run to second base, using the two strategies.  
 
-### Step 11.	State what the p-value tells us about the null hypothesis, in context.
+### Step 11.	State what the p-value tells us about the null hypothesis, in context.    {-}
 
 Since the p-value is small, we have strong evidence against the null hypothesis. There is evidence that the average amount of time it takes to run to second base differs between the wide and narrow strategy.   
 
 
-### Step 12.	Write a paragraph summarizing your conclusions regarding the question of interest. You should address the following:
+### Step 12.	Write a paragraph summarizing your conclusions regarding the question of interest. You should address the following:     {-}
  - Is the result/effect statistically discernible?
  - Is the size of the result/effect practically meaningful?
  - Does the design of the study allow us to infer a causal relationship? Can we generalize the results from a sample to a larger population? Why or why not?
@@ -2120,14 +2171,35 @@ Since the p-value is small, we have strong evidence against the null hypothesis.
 
 We found that on average, it takes about 0.075 seconds longer to run to second base using the narrow approach than the wide approach. The small p-value tells us that this difference was not likely to occur by chance. Although 0.075 seconds is not a lot of time, it could be the difference between a runner being safe or out, so runners might want to consider using the wide angle to give themselves the best chance of reaching safely. We don't know a lot about these runners. If they were randomly selected from a group of baseball/softball players, then it would be reasonable to generalize these results to all baseball/softball players. A follow-up study with a bigger sample size would be helpful, especially since the data are old (from 1970).   
 
+## Responsible Statistical Inference
 
 \newpage
 
 
-## Statistical Significance and Practical Importance   
-
 
 # Regression and Modeling
+
+**Module 5 Learning Outcomes:**
+
+42. Describe relationships between variables in a scatterplot, including strength, direction, and form, and identify outliers.          
+43. Estimate the correlation coefficient, $r$, between variables shown in a scatterplot.  
+44. Identify and interpret the slope, intercept, and coefficient of determination ($R^2$) for a linear regression model using R output.   
+45. Predict the value of a response variable for a given value of the explanatory variable using a regression line.   
+46. Recognize the risk of extrapolation and state when it is inappropriate to make predictions using a regression line.    
+47. Write null and alternative hypotheses in regression.   
+48. Explain how to use simulation to test hypotheses in regression.     
+49. Define a p-value in regression context. (i.e. "The p-value represents the probability of ...")    
+50. State what we should conclude from a p-value, in regression context.      
+51. Interpret test statistics and p-values for the slope of a regression line, using R-output.   
+52. Explain the difference between confidence intervals and prediction intervals and determine when it is appropriate to use each type.   
+53. Interpret confidence intervals (for slope, intercept, and expected response) and prediction intervals in regression.   
+
+54. Use R to perform linear regression and analyze results.    
+55. Interpret regression coefficients (slopes and intercepts) in a multiple regression model using R output.       
+56. Interpret t-statistics and p-values in multiple regression.    
+57. Predict the value of a response variable using multiple regression output in R.    
+
+\newpage
 
 ## Introduction to Regression
 
@@ -2168,7 +2240,7 @@ When describing relationships between quantitative variables, we should consider
 
 The **correlation coefficient** measures the strength and direction between two variables. 
 
-```{r, echo=F, fig.width=8, fig.height=4, fig.align='center', message=FALSE, warning=FALSE}
+```{r, echo=FALSE, fig.width=8, fig.height=4, fig.align='center', message=FALSE, warning=FALSE}
 library(MASS)
 library(ggplot2)
 library(gridExtra)
@@ -2204,7 +2276,7 @@ grid.arrange(fig1, fig2, fig3, fig4,fig5, fig6, ncol=3)
 2. Correlation only describes the strength of a linear relationship. $r=0$ means there is no linear association, but there could still be a nonlinear relationship.
     - The variables in the plot below would have a correlation coefficient of $r=0$, even though there is clearly a relationship between them.   
 
-```{r, fig.align='center'}
+```{r, fig.align='center', echo=FALSE}
 library(ggformula)
 x <- rep(seq(from=-1, to=1, by=0.05),2)
 y <- x^2
@@ -2235,7 +2307,7 @@ cor(SmallCars$LowPrice, SmallCars$Acc060)
 
 ### Line of Best Fit
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.height=3}
 gf_point(LowPrice~Acc060, data=SmallCars) %>% gf_lm() %>%
   gf_labs(title="Price and Acceleration Time of Cars", 
           x="Time to Accelerate from 0-60 mph", y="Price")
@@ -2320,7 +2392,7 @@ The following slides illustration where simple linear regression is not appropri
 
 ### Nonlinear Pattern
 
-```{r, fig.height=4, fig.width=7, echo=FALSE}
+```{r, fig.height=3, fig.width=7, echo=FALSE}
 set.seed(11032018)
 x <- seq(from=-5, to=5, by=0.25)
 y <- .5*x^3+rnorm(length(x), 0,5)
@@ -2332,7 +2404,7 @@ A nonlinear pattern indicates that a more complicated model should be used, rath
 
 ### Funnel Shape
 
-```{r, fig.height=4, fig.width=7, echo=FALSE}
+```{r, fig.height=3, fig.width=7, echo=FALSE}
 set.seed(11032018)
 x <- seq(from=0, to=5, by=0.1)
 y <- x+rnorm(length(x), 0,x^2)
@@ -2344,7 +2416,7 @@ A "funnel shape" indicates a lack of constant variability, which will throw off 
 
 ### Outliers
 
-```{r, fig.height=4, fig.width=7, echo=FALSE}
+```{r, fig.height=3, fig.width=7, echo=FALSE}
 set.seed(11032018)
 x <- seq(from=-5, to=5, by=.5)
 y <- x+rnorm(length(x), 0,3)
@@ -2417,7 +2489,7 @@ kable(head(SmallCars))
 
 ### Randomized Data Scatterplot
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, echo=FALSE}
 gf_point(ShuffledPrice~Acc060, data=SmallCars) %>% 
   gf_labs(x="Acceleration Time", 
           y="Shuffled Price") %>% gf_lm() + geom_abline(slope=-6.15, intercept=79.39)
@@ -2453,8 +2525,11 @@ t=\frac{\text{Slope}-0}{\text{SE(Slope)}}
 
 We can get the standard error for the slope directly from the R output.  
 
-```{r}
+```{r, echo=FALSE}
 options(scipen = 999)
+```
+
+```{r}
 M <- lm(LowPrice~Acc060, data=SmallCars)
 summary(M)
 ```
@@ -2491,7 +2566,7 @@ The response variable is price and the explanatory variable is acceleration time
 
 Since we're comparing two quantitative variables, we'll use a scatterplot.   
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.height=3}
 gf_point(LowPrice~Acc060, data=SmallCars) %>% 
   gf_labs(title="Price and Acceleration Time of Cars", 
           x="Time to Accelerate from 0-60 mph", y="Price (in thousands)")
@@ -2508,10 +2583,9 @@ The sample is the 47 cars we looked at. The sample statistic is the slope of the
 
 ### Step 6. Calculate the value of the sample statistic.      {-}
 
-The sample statistic is $b_1=6.15$.    
+The sample statistic is $b_1=-6.15$.    
 
 ```{r}
-options(scipen = 999)
 M <- lm(LowPrice~Acc060, data=SmallCars)
 summary(M)
 ```
@@ -2542,13 +2616,13 @@ To perform the simulation, we'll use the following steps.
 
 ### Step 9.	Perform the test to obtain a p-value.**    {-}
 
-The simulation is performed in R. The code used to perform the simulation is shown, along with the results.   
+The simulation is performed in R. 
 
-```{r}
+```{r, echo=FALSE}
 set.seed(07022023)
 ```
 
-```{r, echo=FALSE}
+```{r}
 CarsTest
 ```
 
@@ -2610,7 +2684,7 @@ We can be 95% confident that for each additional 1 second it takes to accelerate
 
 The `predict` command in R returns confidence and prediction intervals. We tell R the interval type we want.   
 
-```{r}
+```{r, echo=TRUE}
 predict(M, newdata=data.frame(Acc060=8), conf.level=0.95, interval="confidence")
 ```
 
@@ -2619,7 +2693,7 @@ We are 95% confident that the average price among all new 2015 small cars that a
 ### Prediction Interval for Price  
 
 
-```{r}
+```{r, echo=TRUE}
 predict(M, newdata=data.frame(Acc060=8), conf.level=0.95, interval="prediction")
 ```
 
@@ -2644,92 +2718,13 @@ gf_point(LowPrice~Acc060, data=new_df) %>%
 \newpage
 
 
-## The Regression Effect    
-
-
-
-### The Regression Effect
-
-Exam 1 vs Exam 2 scores for intro stat students at another college
-
-```{r, fig.height=2.5, fig.width=5, echo=FALSE}
-data(StatGrades)
-gf_point(data=StatGrades, Exam2~Exam1) %>% gf_lm 
-```
-
-What is the relationship between scores on the two exams? 
-
-### The Regression Effect
-
-Exam 1 vs Exam 2 scores for intro stat students at another college
-
-```{r, fig.height=2.5, fig.width=5, echo=FALSE}
-data(StatGrades)
-gf_point(data=StatGrades, Exam2~Exam1) %>% gf_lm  %>% gf_function(fun = identity)
-```
-
-How many of the 6 students who scored below 70 on Exam 1 improved their scores on Exam 2?
-
-How many of the 7 students who scored above 90 improved on Exam 2?
-
-### The Regression Effect
-
-A low score on an exam is often the result of both poor preparation and bad luck.
-
-A high score often results from both good preparation and good luck. 
-
-While changes in study habits and preparation likely explain some improvement in low scores, we would also expect the lowest performers to improve simply because of better luck. 
-
-Likewise, some of the highest performers may simply not be as lucky on exam 2, so a small dropoff should not be interpreted as weaker understanding of the exam material.
-
-
-### Simulating Regression Effect {.smaller}
-
-```{r, fig.height=2.5, fig.width=5, echo=FALSE}
-set.seed(110322018)
-Understanding <-rnorm(50, 80, 5)
-Score1 <- Understanding + rnorm(50, 0, 3)
-Score2 <- Understanding + rnorm(50, 0, 3)
-df <- data.frame(Score1, Score2)
-gf_point(data=df, Score2~Score1) %>% gf_lm() %>% gf_function(fun = identity)
-```
-
-This simulation shows that the lowest scorers often improve, while the highest scorers often dropoff by chance alone.
-
-This phenomenon is called the **regression effect**.
-
-### Another Example
-
-Wins by NFL teams in 2017 and 2018
-
-```{r, each=FALSE, fig.height=4, fig.width=7, echo=FALSE}
-Wins2017 <- c(8,10,9,9,11,5,7,0,9,5,9,7,4,4,10,10,9,11,6,13,13,11,3,5,6,13,13,6,9,5,9,7)
-Wins2018 <- c(3,7,10,6,7,12,6,7.5,10,6,6,6.5, 11,10,5,12,12,13,7,8.5,11,13,5,4,4,9,9.5,4,10,5,9,7 )
-NFL <- data.frame(Wins2017, Wins2018)
-gf_point(Wins2018~Wins2017, data=NFL) %>% gf_lm %>% gf_function(fun=identity) %>%
-  gf_labs(title="NFL Wins 2017-2018")
-
-```
-
-### Other Examples of Regression Effect {.smaller}
-
-A 1973 article by Kahneman, D. and Tversky, A., "On the Psychology of Prediction," Pysch. Rev. 80:237-251 describes an instance of the regression effect in the training of Israeli air force pilots. 
-
-Trainees were praised after performing well and criticized after performing badly. The flight instructors observed that "high praise for good execution of complex maneuvers typically results in a decrement of performance on the next try." 
-
-Kahneman and Tversky write that :
-
-*"We normally reinforce others when their behavior is good and punish them when their behavior is bad. By regression alone, therefore, they [the trainees] are most likely to improve after being punished and most likely to deteriorate after being rewarded. Consequently, we are exposed to a lifetime schedule in which we are most often rewarded for punishing others, and punished for rewarding."*
-
-\newpage
-
 ## Multiple Regression    
 
 ### SAT Scores Example
 
 We'll now look at a dataset containing education data on all 50 states. Among the variables are average SAT score, average teacher salary, and fraction of students who took the SAT.
 
-```{r, fig.height=2.5, fig.width=5, include=FALSE}
+```{r, fig.height=2.5, fig.width=5, include=FALSE, echo=FALSE}
 library(mosaic)
 data(SAT)
 ```
@@ -2742,7 +2737,7 @@ head(SAT)
 
 The plot displays average SAT score against average teacher salary for all 50 US states.
 
-```{r, fig.height=4, fig.width=6, , echo=FALSE}
+```{r, fig.height=4, fig.width=6, echo=FALSE}
 gf_point(data=SAT, sat~salary) %>% gf_lm() %>% 
   gf_labs("Average SAT score vs Average Teacher Salary", 
           x="Average Teacher Salary in Thousands")
@@ -2770,7 +2765,7 @@ Low = 0%-22%
 Medium = 22-49%    
 High = 49-81%
 
-```{r}
+```{r, echo=FALSE}
 SAT <- mutate(SAT, fracgrp = cut(frac, 
       breaks=c(0, 22, 49, 81), 
       labels=c("low", "medium", "high")))
@@ -2819,6 +2814,10 @@ On average, a 1% increase in percentage of students taking the SAT is associated
 \newpage
 
 # Inference Involving More than Two Groups   
+
+58. State the null and alternative hypotheses associated with Chi-Square and ANOVA F-tests.    
+59. Interpret the p-value and draw conclusions from Chi-Square and ANOVA F-tests. 
+
 
 ## Chi-Square Tests for Categorical Data    
 
@@ -2872,7 +2871,7 @@ kable(round(apply(T, 2, colprop),2)*100)
 
 
 
-```{r, echo=F, fig.width=4, fig.height=4, fig.align='center', message=FALSE, warning=FALSE}
+```{r, echo=FALSE, fig.width=4, fig.height=4, fig.align='center', message=FALSE, warning=FALSE}
 gf_counts(data=Students, ~Grade, fill=~Choice, position="fill")  %>% 
   gf_labs(x="Grade", y="Choice")
 ```
@@ -2939,8 +2938,9 @@ The p-value is high, indicating that it would not be at all unusual to observe d
 
 The students came from a sample of students in Michigan. These results might not apply to students in other parts of the country. These data are also more than 30 years old, and might not represent students today.   
 
+\newpage
 
-### Steps in Chi-Square Hypothesis Test   
+## Steps in Chi-Square Hypothesis Test   
 
 Now, we'll go through the steps of a hypothesis test to perform Chi-square ($\chi^2$) test for differences in student preferences based on location.   
 
@@ -3021,7 +3021,7 @@ First we'll do a simulation-based hypothesis test for the $\chi^2$ statistic. Th
 
 The simulation is performed in R. The code used to perform the simulation is shown, along with the results.   
 
-```{r}
+```{r, echo=FALSE}
 set.seed(07022023)
 ```
 
@@ -3151,7 +3151,7 @@ head(Mice)
 ```      
 
 
-```{r}
+```{r, echo=FALSE}
 T <- Mice %>% group_by(Light) %>% summarise(mean_Gain = mean(BMGain), sd=sd(BMGain), n=n())
 kable(T)
 ```
@@ -3229,7 +3229,7 @@ Like in simulation-based test, the p-value provides strong evidence of differenc
 
 We don't know yet, which light/dark settings differ significantly from one another. 
 
-
+\newpage
 
 ## Steps in ANOVA F Hypothesis Test    
 
@@ -3251,7 +3251,7 @@ The explanatory variable is type of light, which is categorical.
 
 
 
-```{r}
+```{r, echo=FALSE}
 T <- Mice %>% group_by(Light) %>% summarise(mean_Gain = mean(BMGain), sd=sd(BMGain), n=n())
 kable(T)
 ```
