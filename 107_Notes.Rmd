@@ -39,20 +39,18 @@ source("https://raw.githubusercontent.com/AndrewjSage/Stat107_Notes/main/SBI.R")
 
 **Module 1 Learning Outcomes:**
 
-1. Explain how to collect sample data that is representative of a larger population.     
-2. Identify sources of sampling bias.   
-3. Identify confounding variables and explain how they impact our ability to draw inferences about causal relationships.     
-4. Distinguish between an observational study and an experiment.   
-5. Explain how design an experiment using the principles of experimental design (control, randomization, replication, blocking, blinding, and placebo), when appropriate.     
-6. Explain how to collect data in an ethical manner.    
-7. Identify the sample, population, statistic, and parameter of interest in a given study.  
-8. Distinguish between categorical and quantitative variables.    
-9. Interpret data graphics including bar graphs, histograms, boxplots, and scatterplots.      
-10. Draw conclusions about measures of center and spread (mean, median, interquartile range, standard deviation) based on graphical representations of data.    
-11. Draw conclusions about measures of center and spread based on written descriptions of data.    
-12. Explain how characteristics of a data distribution (including skewness and presence of outliers) affect measures of center and spread.    
+1. Identify sources of sampling bias.   
+2. Identify confounding variables and explain how they impact our ability to draw inferences about causal relationships.     
+3. Distinguish between an observational study and an experiment.   
+4. Explain how to design an experiment using the principles of experimental design (control, randomization, replication, blocking, blinding, and placebo), when appropriate.     
+5. Identify the sample, population, statistic, and parameter of interest in a given study.  
+6. Distinguish between categorical and quantitative variables.    
+7. Interpret data graphics including bar graphs, histograms, boxplots, and scatterplots.      
+8. Draw conclusions about measures of center and spread (mean, median, interquartile range, standard deviation) based on graphical representations of data.    
+9. Draw conclusions about measures of center and spread based on written descriptions of data.    
+10. Explain how characteristics of a data distribution (including skewness and presence of outliers) affect measures of center and spread.    
 
-13. Use R to create informative data graphics (bar graph, histogram, boxplot, scatterplot).   
+11. Use R to create informative data graphics (bar graph, histogram, boxplot, scatterplot).   
 
 \newpage
 
@@ -393,13 +391,14 @@ kable(movies %>% filter(Genre %in% c("Comedy", "Drama")) %>%
 
 **Module 2 Learning Outcomes:**
 
-14. Identify the parameter of interest and sample statistic using words and symbols for categorical data with one or two samples.    
-15. State appropriate null and alternative hypotheses, using both words and symbols for categorical data with one or two samples.            
-16. Describe how to use simulation to test hypotheses for categorical data with one or two samples.        
-17. Define a p-value in a given context (i.e. "The p-value represents the probability of ...") for categorical data with one or two samples.        
-18. State what we should conclude from a p-value, in context, for categorical data with one or two samples.          
-19. Draw data-driven conclusions by synthesizing information including study design, statistical significance, and practical importance, for categorical data with one or two samples.         
-20. Use R to analyze categorical data.  
+12. Identify the parameter of interest and sample statistic using words and symbols for categorical data with one or two samples.    
+13. State appropriate null and alternative hypotheses, using both words and symbols for categorical data with one or two samples.            
+14. Describe how to use simulation to test hypotheses for categorical data with one or two samples.        
+15. Define a p-value in a given context (i.e. "The p-value represents the probability of ...") for categorical data with one or two samples.        
+16. State what we should conclude from a p-value, in context, for categorical data with one or two samples.          
+17. Draw data-driven conclusions by synthesizing information including study design, statistical significance, and practical importance, for categorical data with one or two samples.         
+
+18. Use R to analyze categorical data.  
 
 \newpage
 
@@ -876,15 +875,14 @@ The fairly small p-value gives us some evidence against the null hypothesis. The
 
 **Module 3 Learning Outcomes:**    
 
-21. Identify the parameter of interest and sample statistic using words and symbols for quantitative data with one or two samples.        
-22. State appropriate null and alternative hypotheses, using both words and symbols for quantitative data with one or two samples.                
-23. Describe how to use simulation to test hypotheses involving one or two samples for quantitative data with one or two samples.            
-24. Define a p-value in a given context (i.e. "The p-value represents the probability of ...")  for quantitative data with one or two samples.            
-25. State what we should conclude from a p-value, in context, for quantitative data with one or two samples.              
-26. Draw data-driven conclusions by synthesizing information including study design, statistical significance, and practical importance, for quantitative data with one or two samples.             
+19. Identify the parameter of interest and sample statistic using words and symbols for quantitative data with one or two samples.        
+20. State appropriate null and alternative hypotheses, using both words and symbols for quantitative data with one or two samples.                
+21. Describe how to use simulation to test hypotheses involving one or two samples for quantitative data with one or two samples.            
+22. Define a p-value in a given context (i.e. "The p-value represents the probability of ...")  for quantitative data with one or two samples.            
+23. State what we should conclude from a p-value, in context, for quantitative data with one or two samples.              
+24. Draw data-driven conclusions by synthesizing information including study design, statistical significance, and practical importance, for quantitative data with one or two samples.             
 
-27. Use R to analyze quantitative data.  
-
+25. Use R to analyze quantitative data.  
 
 In this Module, we'll perform hypothesis tests for quantitative, rather than categorical, response variables.   
 
@@ -1173,20 +1171,18 @@ In our sample of 53 lakes, the average mercury level was slightly higher than 0.
 
 **Module 4 Learning Outcomes**    
 
-28. Explain the difference between the distribution of values in a sample and the sampling distribution for a statistic.    
-29. Show how to calculate standardized (z and t) statistics for categorical and quantitative data, with one or two samples.    
-30. Interpret standardized statistics in context.  
-31. Determine what standardized statistics tell us about the plausibility of the null hypothesis.     
-32. Determine whether conditions for using "theory-based" approaches like normal and t-distributions are met.    
-33. Interpret R output from hypothesis test commands.          
-34. Show how to calculate confidence intervals for means and proportions, and differences in means and proportions.      
-35. Interpret confidence intervals in context.      
-36. State how changes in sample size impact variability of sampling distributions, test statistics, p-values, and evidence against the null hypothesis, and the width of confidence intervals.     
-37. Determine when to use a paired t-test and when to use a t-test for independent samples.    
-38. Explain Simpson's paradox and how draw conclusions in situations involving it.  
-39. Distinguish between statistical significance and practical importance and make appropriate decisions based on these concepts.    
-40. Recognize situations where we should use multiple testing procedures such as the Bonferroni correction.     
-41. Use R to analyze data using theory-based tests and confidence intervals.     
+26. Explain the difference between the distribution of values in a sample and the sampling distribution for a statistic.    
+27. Calculate and interpret standardized (z and t) statistics for categorical and quantitative data, with one or two samples.    
+28. Determine whether conditions for using "theory-based" approaches like normal and t-distributions are met.    
+29. Interpret R output from hypothesis test commands.          
+30. Show how to calculate confidence intervals for means and proportions, and differences in means and proportions.      
+31. Interpret confidence intervals in context.      
+32. State how changes in sample size impact variability of sampling distributions, test statistics, p-values, evidence against the null hypothesis, and the width of confidence intervals.     
+33. Determine when to use a paired t-test and when to use a t-test for independent samples.    
+34. Explain Simpson's paradox and how draw conclusions in situations involving it.  
+35. Distinguish between statistical significance and practical importance and make appropriate decisions based on these concepts.    
+36. Recognize situations where we should use multiple testing procedures such as the Bonferroni correction.     
+37. Use R to analyze data using theory-based tests and confidence intervals.    
 
 \newpage
 
@@ -2173,31 +2169,271 @@ We found that on average, it takes about 0.075 seconds longer to run to second b
 
 ## Responsible Statistical Inference
 
+
+More data have been recorded in the last two years than all previous human existence (Forbes magazine). Data have been used to improve people's lives in a wide range of ways. Nevertheless, data can be easily misused in dangerous ways, either intentionally, or by accident. According to *Nature* more than 50% of scientific studies cannot be reproduced, and more than 25% using p < 0.05 cutoff produce false results. 
+
+A 2016 statement from the American Statistical Association wrote: 
+
+* “(S)cientists have embraced and even avidly pursued meaningless differences solely because they are statistically significant, and have ignored important effects because they failed to pass the screen of statistical significance...It is a safe bet that people have suffered or died because scientists (and editors, regulators, journalists and others) have used significance tests to interpret results, and have consequently failed to identify the most beneficial courses of action.”    
+
+
+A famous quote attributed to Mark Twain (and others) says "There are three kinds of lies: lies, damned lies, and statistics." 
+
+In this section, we examine several realistic scenarios in which data might be used to draw incorrect, and even dangerous conclusions, if we aren't careful.    
+
+
+### Simpson's Paradox - Hospital Survival Rates
+
+Example from *Introduction to Statistical Investigations* by Tintle et al. 
+
+The table shows the number of patients who survived and the number who died at two different hospitals, A and B. 
+
+**All Patients:**
+
+|             |  Survived | Died | Total |
+|-----------|----------|-----------|
+| Hospital A | 800   |  200     | 1000 |
+| Hospital B | 900   |  100     | 1000 |
+
+**Broken Down by Health Condition**
+
+We now break down survival rates by health of patients at the time of admission to the hospital .
+
+Patients in good condition (non-life threatening illness or injury):
+
+|             |  Survived | Died | Total |
+|-----------|----------|-----------|
+| Hospital A | 590 (98.3%)  |  10  (1.7%)   | 1000 |
+| Hospital B | 870 (96.7%)  |  30  (3.3%)   | 1000 |
+
+Patients in poor condition (serious, possibly life-threatening condition):
+
+|             |  Survived | Died | Total |
+|-----------|----------|-----------|
+| Hospital A | 210 (52.5%)  |  190  (47.5%)   | 1000 |
+| Hospital B | 30  (30%)  |  70 (70%)    | 1000 |
+
+Which hospital would you recommend to a person you care about? Why?
+
+The hospital example is an instance of **Simpson's Paradox**
+
+Simpson's paradox occurs when an overall trend appears to "reverse" when data are broken down into subgroups or categories. 
+
+Simpson's paradox has appeared in data involving:   
+1. College admissions   
+2. Medical data     
+3. Sports statistics    
+4. Court convictions    
+
+and many more. 
+
+
+### Multiple Testing - Breakfast Cereal and Sex at Birth   
+
+A 2008 article from **Newscientist.com** ran the headline **"Breakfast Cereals Boost the Chances of Conceiving Boys"**(https://www.newscientist.com/article/dn13754-breakfast-cereals-boost-chances-of-conceiving-boys/)
+
+**Note: In addition to statistical fallacies, this article contains problematic assumptions about gender, among other topics. The purpose of examining this article is to illuminate the real and troubling ways in which misuse and misrepresentation of data can be harmful, especially when combined with problematic assumptions in society.**
+
+The article claims that women who eat breakfast cereal before becoming pregnant, are significantly more likely to conceive boys.  The researchers kept track of 133 foods and, for each food, tested whether there was a difference in the proportion conceiving boys between women who ate the food and women who did not. Of all the foods, only breakfast cereal resulted in a p-value less than 0.01. 
+
+Explain what is wrong with the way the researchers used p-values to come to this conclusion. Hint: it relates to this [XKCD comic](https://xkcd.com/882/). 
+
+
+### Multiple Testing Error and Bonferroni Correction {-}
+
+The breakfast cereal conclusion demonstrates a pitfall, known as multiple testing error. 
+
+When we perform more than one test, it increases the likelihood of getting a small p-value just by chance, even if there is really no difference between the groups. 
+
+In fact, if we test 100 different foods, then we would expect 5 of them to yield a p-value less than 0.05 and 1 to yield a p-value less than 0.01 just by chance. 
+
+In order to correct for this, researchers should use a lower cutoff value (level of significance) in order to reject the null hypothesis. 
+
+One way to correct for multiple testing error is the Bonferroni correction. Instead of using 0.05, use $\frac{0.05}{\# \text{ tests}}$
+
+Example: In the breakfast cereal example, only reject null hypothesis if p-value $\frac{0.05}{133}=0.000376$
+
+
+### Statistical Significance and Practical Importance - Airline Flights
+
+A traveler lives in New York and wants to fly to Chicago. They consider flying out of two New York airports:   
+
+* Newark (EWR)     
+* LaGuardia (LGA)    
+
+We have data on the times of flights from both airports to Chicago's O'Hare airport from 2013 (more than 14,000 flights). 
+
+Assuming these flights represent a random sample of all flights from these airports to Chicago, consider how the traveler might use this information to decide which airport to fly out of. 
+
+
+```{r, include=FALSE}
+library(nycflights13)
+data(flights)
+Flights1 <- flights %>% filter(origin %in% c("EWR", "LGA") & dest =="ORD" & !is.na(air_time))
+rm(flights)
+```
+
+```{r, fig.height=3, fig.width=8, echo=FALSE, eval=FALSE}
+h <- gf_histogram(data=Flights1, .~air_time | origin, color="black", fill="blue") 
+b <- gf_boxplot(data=Flights1, air_time~origin) + coord_flip()
+grid.arrange(h, b, ncol=2)
+```
+
+```{r, fig.height=3, fig.width=5, echo=FALSE}
+library(knitr)
+T <- Flights1 %>% group_by(origin) %>% summarize(Mean_Airtime = mean(air_time), SD = sd(air_time), n=n())
+kable(T)
+```
+
+
+**Null Hypothesis:** Mean flight time from LaGuardia to O'Hare is the same as from Newark to O'Hare ($\mu_1=\mu_2$)
+
+**Alternative Hypothesis:** Mean flight time to O'Hare differs between the two New York airports ($\mu_1\neq\mu_2$)
+
+
+Because sample sizes are large (much greater than 30), we can use the t-distribution. 
+
+```{r}
+t.test(data=Flights1, air_time~origin, alternative="two.sided", conf.level=0.95)
+```
+
+
+Do the data provide evidence that mean flight time to O'Hare differs between the two New York airports?
+
+How important would this information be for you when deciding which New York airport to fly out of?
+
+### Summary {-}
+
+The low p-value gives us strong evidence of a difference in mean flight times between the two New York airports. 
+
+We can be 95% confidence that average flight time to Chicago O'Hare is between 2.2 to 2.9 minutes faster for flights out of Newark, than flights out of LaGuardia. 
+
+In reality, this difference is practically meaningless. 
+
+The low p-value is due to the very large sample size. 
+
+
+
+### Statistical Significance and Practical Importance - Smoking and Birthweight
+
+We consider a data on a random sample of 80 babies born in North Carolina in 2004. Thirty were born to mothers who were smokers, while fifty were born to mothers who were nonsmokers. 
+
+We are interested in studying whether there is evidence of a difference in average birthweight between babies born to smokers and nonsmokers. 
+
+```{r, include=FALSE}
+set.seed(10212019)
+library(openintro)
+data(ncbirths)
+Smokers <- ncbirths%>%filter(habit=="smoker")
+NonSmokers <- ncbirths%>%filter(habit=="nonsmoker")
+samp1 <- seq(from=3, to=122, by=4)
+samp2 <- seq(from=3, to=852, by=17)
+NCBirths <- rbind(Smokers[samp1, ], NonSmokers[samp2, ])
+```
+
+
+
+```{r, fig.height=3, fig.width=8, echo=FALSE, eval=FALSE}
+h <- gf_histogram(data=NCBirths, .~weight | habit, color="black", fill="blue", binwidth = 2) 
+b <- gf_boxplot(data=NCBirths, weight~habit) + coord_flip()
+grid.arrange(h, b, ncol=2)
+```
+
+```{r, fig.height=3, fig.width=5, echo=FALSE}
+library(knitr)
+T <- NCBirths %>% group_by(habit) %>% summarize(Mean_Weight = mean(weight), SD = sd(weight), n=n())
+kable(T)
+```
+
+
+**Null Hypothesis:** There is no difference between mean birthweight for babies with mothers who smoke, compared to babies with mothers who do not. ($\mu_1=\mu_2$)
+
+**Alternative Hypothesis:** There is a difference between mean birthweight for babies with mothers who smoke, compared to babies with mothers who do not. ($\mu_1\neq\mu_2$)
+
+
+Since samples are not too small (both $\geq 30$) and not heavily skewed, t-distribution is appropriate. 
+
+```{r}
+t.test(data=NCBirths, weight~habit, alternative="two.sided", conf.level=0.95)
+```
+
+Do the data provide evidence that of differences in birthweights for babies born to smokers, compared to nonsmokers? 
+
+Many studies have shown that a mother's smoking puts a baby at risk of low birthweight. Do our results contradict this research? Why or why not?
+
+
+### Further Context {-}
+
+Notice that we observed a difference of about 0.5 lbs. in mean birthweight. A 0.5 lb. difference is considerable for baby weights. 
+
+It would be highly inappropriate to say that our data suggest that there is no difference in birthweights for babies of smokers, compared to nonsmokers. 
+
+Our large p-value is due to the fact that our sample size is too small. It does NOT suggest that there is no difference. 
+
+This is yet another example of why we should never "accept the null hypothesis" or say that our data "support the null hypothesis."
+
+### Full Dataset {-}
+
+In fact, this sample of 80 babies is part of a larger dataset, consisting of 1,000 babies born in NC in 2004. When we consider the full dataset, notice that the difference between the groups is similar, but the p-value is much smaller. 
+
+```{r}
+t.test(data=ncbirths, weight~habit, alternative="two.sided", conf.level=0.95)
+```
+
+
+
+
+
+### Cautions and Advice 
+
+
+**p-values are only (a small) part of a statistical analysis.** 
+
+* low p-value tells us a difference would not likely have occurred by chance     
+
+* does not tell us size of difference or whether it is meaningful    
+
+* when sample size is large, even small differences yield small p-values
+
+
+
+
+* For small samples, real differences might not be statistically significant.       
+      -Don't accept null hypothesis. Gather more information.    
+* For large, even very small differences will be statistically significant.    
+      -Look at confidence interval. Is difference practically important?     
+* When many hypotheses are tested at once (such as many food items) some will produce a significant result just by change.     
+       -Use a multiple testing correction, such as Bonferroni   
+* Interpret p-values on a “sliding scale”     
+     - 0.049 is practically the same as 0.051
+* Is sample representative of larger population?    
+* Were treatments randomly assigned (for experiments)?    
+* Are there other variables to consider?
+
 \newpage
-
-
 
 # Regression and Modeling
 
 **Module 5 Learning Outcomes:**
 
-42. Describe relationships between variables in a scatterplot, including strength, direction, and form, and identify outliers.          
-43. Estimate the correlation coefficient, $r$, between variables shown in a scatterplot.  
-44. Identify and interpret the slope, intercept, and coefficient of determination ($R^2$) for a linear regression model using R output.   
-45. Predict the value of a response variable for a given value of the explanatory variable using a regression line.   
-46. Recognize the risk of extrapolation and state when it is inappropriate to make predictions using a regression line.    
-47. Write null and alternative hypotheses in regression.   
-48. Explain how to use simulation to test hypotheses in regression.     
-49. Define a p-value in regression context. (i.e. "The p-value represents the probability of ...")    
-50. State what we should conclude from a p-value, in regression context.      
-51. Interpret test statistics and p-values for the slope of a regression line, using R-output.   
-52. Explain the difference between confidence intervals and prediction intervals and determine when it is appropriate to use each type.   
-53. Interpret confidence intervals (for slope, intercept, and expected response) and prediction intervals in regression.   
+38. Describe relationships between variables in a scatterplot, including strength, direction, and form, and identify outliers.          
+39. Estimate the correlation coefficient, $r$, between variables shown in a scatterplot.  
+40. Identify and interpret the slope, intercept, and coefficient of determination ($R^2$) for a linear regression model using R output.   
+41. Predict the value of a response variable for a given value of the explanatory variable using a regression line.   
+42. Recognize the risk of extrapolation and state when it is inappropriate to make predictions using a regression line.    
+43. Explain how to use simulation to test hypotheses in regression.     
+44. Define a p-value in regression context. (i.e. "The p-value represents the probability of ...")    
+45. State what we should conclude from a p-value, in regression context.      
+46. Interpret test statistics and p-values for the slope of a regression line, using R-output.   
+47. Explain the difference between confidence intervals and prediction intervals and determine when it is appropriate to use each type.   
+48. Interpret confidence intervals (for slope, intercept, and expected response) and prediction intervals in regression.   
 
-54. Use R to perform linear regression and analyze results.    
-55. Interpret regression coefficients (slopes and intercepts) in a multiple regression model using R output.       
-56. Interpret t-statistics and p-values in multiple regression.    
-57. Predict the value of a response variable using multiple regression output in R.    
+49. Use R to perform linear regression and analyze results.    
+51. Interpret regression coefficients (slopes and intercepts) in a multiple regression model using R output.       
+52. Interpret t-statistics and p-values in multiple regression.    
+53. Predict the value of a response variable using multiple regression output in R.    
+
+
 
 \newpage
 
@@ -2815,8 +3051,11 @@ On average, a 1% increase in percentage of students taking the SAT is associated
 
 # Inference Involving More than Two Groups   
 
-58. State the null and alternative hypotheses associated with Chi-Square and ANOVA F-tests.    
-59. Interpret the p-value and draw conclusions from Chi-Square and ANOVA F-tests. 
+**Module 6 Learning Outcomes**
+
+
+54. State the null and alternative hypotheses associated with Chi-Square and ANOVA F-tests.    
+55. Interpret the p-value and draw conclusions from Chi-Square and ANOVA F-tests.    
 
 
 ## Chi-Square Tests for Categorical Data    
@@ -3323,15 +3562,9 @@ The low p-value provides evidence against the null hypothesis. We can conclude s
 We found evidence that at mean body mass gain in mice differs between at least some of the LD, DM, and LL conditions. In the data, mice who got light all the time (LL) gained the most, followed by those that got dim light (DM), and those who got a light-dark cycle (LD) gained the least. The F-test does not tell us which groups differ significantly from each other. Since this is an experiment and mice were randomly assigned to groups, we can conclude that the differences in weight gain are caused by the treatments. We should only generalize our results to mice that are similar to the ones in the study.   
 
 
-\newpage
-
-## Multiple Testing
-
-### Bonferroni Correction
-
 Since we found differences in body mass gain in mice between the three different light conditions, we should investigate which groups differ. It could be that we have evidence of differences between all three conditions, or that we have evidence that one condition leads to more/less weight gain, and the other two are about the same.   
 
-### Pairwise t-tests {.smaller}
+### Pairwise t-tests 
 
 We use t-tests to compare each of the three groups. Since the data in each condition are roughly symmetric, we can use theory-based t-tests.  
 The table shows the p-values associated with hypothesis tests comparing each of the three groups.   
@@ -3341,17 +3574,7 @@ The table shows the p-values associated with hypothesis tests comparing each of 
 pairwise.t.test(Mice$BMGain, Mice$Light, p.adj="none")
 ```
 
-When we perform more than one test, it increases the likelihood of getting a small p-value just by chance, even if there is really no difference between the groups. This idea is illustrated by this [XKCD comic](https://xkcd.com/882/). 
-
-To correct for this, we multiply the p-values by the number of tests we're performing. This procedure is called the **Bonferroni correction.** There are other more advanced ways to address multiple testing error.   
-
-Thus, the original p-value would need to be less than 0.05/3 = 0.0167 in order for the Bonferroni corrected p-value to be less than 0.05, and the original p-value would have to be less than 0.10/3 = 0.033 in order for the Bonferroni corrected p-value to be less than 0.10.
-
-The p-values after multiplying by 3 are shown in the table below. 
-
-```{r, echo=TRUE}
-pairwise.t.test(Mice$BMGain, Mice$Light, p.adj="bonferroni")
-```
+Since we're performing three different tests, we need to use the **Bonferroni correction**. Thus, the original p-value would need to be less than 0.05/3 = 0.0167 in order for the Bonferroni corrected p-value to be less than 0.05, and the original p-value would have to be less than 0.10/3 = 0.033 in order for the Bonferroni corrected p-value to be less than 0.10.
 
 * There is evidence that weight gain is different in the the LL condition compared to each of the other two conditions.     
 * There is not evidence of differences in weight gain between the DM and LD conditions. 
